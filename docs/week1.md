@@ -22,6 +22,14 @@ kernelspec:
 - general form: $\frac{dy}{dt} = ay + q(t)$ or $\frac{dy}{dt} = p(t)y + q(t)$
 - $\frac{dy}{dt}$ means rate of change.
 
+### Examples of first order ODE. 
+solve and assume $y(0)=1$.
+1. $\frac{dy}{dt}=y$ -> $y(t)=e^{t}$
+2. $\frac{dy}{dt}=-y$ -> $y(t)=e^{-t}$
+3. $\frac{dy}{dt}=2ty$ -> $y(t)=e^{t^{2}}$
+4. $\frac{dy}{dt}=y^{2}$ -> $y(t)=\frac{1}{1-t}$
+
+
 ## Second order linear ODEs
 - $\frac{d^{2}y}{dt^{2}} = -ky$, $\frac{d^{2}y}{dt^{2}}$ indicates acceleration or curvature.
 - $my^{''}+by^{'}+ky=f(t)$, where $by^{'}$ implies dampling.
@@ -40,6 +48,23 @@ kernelspec:
 - wave equation: $\frac{\partial^{2} u}{\partial t^{2}}=\frac{\partial^{2} u}{\partial x^{2}}$
 - Laplace equation: $\frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}=0$
 
+## The calculus you need
+- derivitives of functions: $x^{n}, \sin{x}, \cos{x}, e^{x}, \ln{x}$
+- rules for derivatives:
+	- sum rule
+	- product rule
+	- quotient rule
+	- chain rule: $\frac{dy}{dt}=\frac{dy}{dx}\frac{dx}{dt}$
+- fundamental theorem of calculus:
 
+$$
+  \int_{a}^{b} \frac{dy}{dx}\,dx = y(b) - y(a)
+$$
 
+$$
+  \frac{d}{dx}\int_{a}^{x} f(s)\,ds = f(x)
+$$
+
+### An example, use all rules
+ 
 
