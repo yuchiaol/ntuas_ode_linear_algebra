@@ -41,12 +41,18 @@ Linear algebra:
 - independence, basis, and dimension
 - four fundamental subspaces
 - factorization
-1. $A = CR$; CR decomposition
-2. $A = LU$: LU elimination
-3. $A = QR$: orthogonalization (Gram-Schmidt)
-4. $S = Q\Lambda Q^{T}$: eigenvalues
-5. $A = X\Lambda X^{T}$, diagonalization
-6. $A = U\Sigma V^{T}$, singular value decomposition
+1. CR decomposition: 
+\begin{eqnarray*}
+A = CR
+\end{eqnarray*}
+2. LU elimination: 
+\begin{eqnarray*}
+A = LU
+\end{eqnarray*}
+3. orthogonalization (Gram-Schmidt): $$A = QR$$
+4. eigenvalues: $$S = Q\Lambda Q^{T}$$
+5. diagonalization: $$A = X\Lambda X^{T}$$
+6. singular value decomposition (SVD): $$A = U\Sigma V^{T}$$
 
 Solving linear system:
 - matrix exponential
@@ -65,21 +71,23 @@ Differential Equations and Linear Algebra:
 - youtube: [https://www.youtube.com/playlist?list=PLMsYJgjgZE8iBpOBZEsS8PuwNBkwMcjix](https://www.youtube.com/playlist?list=PLMsYJgjgZE8iBpOBZEsS8PuwNBkwMcjix)
 
 Differential Equations:
-- website: https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/
-- youtube: https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E
+- website: [https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/](https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/)
+- youtube: [https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E](https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E)
 
 Introduction to Linear Algebra:
-- website: https://math.mit.edu/~gs/linearalgebra/
-- youtube: https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8
+- website: [https://math.mit.edu/~gs/linearalgebra/](https://math.mit.edu/~gs/linearalgebra/)
+- youtube: [https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8](https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8)
 
 Linear Algebra and Learning from Data:
-- website: https://math.mit.edu/~gs/learningfromdata/
-- youtube: https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k
+- website: [https://math.mit.edu/~gs/learningfromdata/](https://math.mit.edu/~gs/learningfromdata/)
+- youtube: [https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k](https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k)
 
 Nonlinear Dynamics and Chaos:
-- website: https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering
-- youtube: https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V
+- website: [https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering](https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering)
+- youtube: [https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V](https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V)
 
 Advanced Engineering Mathematics:
-- website: https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929
+- website: [https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929](https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929)
+
+
 
