@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week4 - fundamental equation of mechanics &#8212; Scientific Python QuickStart</title>
+    <title>Week4 - fundamental equation of mechanics &#8212; NTUAS ODE and Linear Algebra</title>
   
   
   
@@ -62,8 +62,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/week4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -313,7 +311,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-ordinary-differential-equations-odes">Overview of ordinary differential equations (ODEs)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-odes">First order linear ODEs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-linear-odes">Second order linear ODEs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-n-equations">System of <span class="math notranslate nohighlight">\(n\)</span> equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-n-equations">System of $n$ equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solutions">Numerical solutions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-differential-euqations-pdes">Partial differential euqations (PDEs)</a></li>
 </ul>
@@ -327,7 +325,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week4-fundamental-equation-of-mechanics">
+  <section id="week4-fundamental-equation-of-mechanics">
 <span id="week4"></span><h1>Week4 -  fundamental equation of mechanics<a class="headerlink" href="#week4-fundamental-equation-of-mechanics" title="Permalink to this heading">#</a></h1>
 <section id="overview-of-ordinary-differential-equations-odes">
 <h2>Overview of ordinary differential equations (ODEs)<a class="headerlink" href="#overview-of-ordinary-differential-equations-odes" title="Permalink to this heading">#</a></h2>
@@ -340,22 +338,22 @@ document.write(`
 <section id="first-order-linear-odes">
 <h2>First order linear ODEs<a class="headerlink" href="#first-order-linear-odes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>general form: <span class="math notranslate nohighlight">\(\frac{dy}{dt} = ay + q(t)\)</span> or <span class="math notranslate nohighlight">\(\frac{dy}{dt} = p(t)y + q(t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\frac{dy}{dt}\)</span> means rate of change.</p></li>
+<li><p>general form: $\frac{dy}{dt} = ay + q(t)$ or $\frac{dy}{dt} = p(t)y + q(t)$</p></li>
+<li><p>$\frac{dy}{dt}$ means rate of change.</p></li>
 </ul>
 </section>
 <section id="second-order-linear-odes">
 <h2>Second order linear ODEs<a class="headerlink" href="#second-order-linear-odes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\frac{d^{2}y}{dt^{2}} = -ky\)</span>, <span class="math notranslate nohighlight">\(\frac{d^{2}y}{dt^{2}}\)</span> indicates acceleration or curvature.</p></li>
-<li><p><span class="math notranslate nohighlight">\(my^{''}+by^{'}+ky=f(t)\)</span>, where <span class="math notranslate nohighlight">\(by^{'}\)</span> implies dampling.</p></li>
+<li><p>$\frac{d^{2}y}{dt^{2}} = -ky$, $\frac{d^{2}y}{dt^{2}}$ indicates acceleration or curvature.</p></li>
+<li><p>$my^{‘’}+by^{‘}+ky=f(t)$, where $by^{‘}$ implies dampling.</p></li>
 </ul>
 </section>
 <section id="system-of-n-equations">
-<h2>System of <span class="math notranslate nohighlight">\(n\)</span> equations<a class="headerlink" href="#system-of-n-equations" title="Permalink to this heading">#</a></h2>
+<h2>System of $n$ equations<a class="headerlink" href="#system-of-n-equations" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\frac{d\vec{y}}{dt}=A\vec{y}\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(n\times n\)</span> matrix</p></li>
-<li><p><span class="math notranslate nohighlight">\(\frac{d^{2}\vec{y}}{dt^{2}}=-S\vec{y}\)</span></p></li>
+<li><p>$\frac{d\vec{y}}{dt}=A\vec{y}$, where $A$ is a $n\times n$ matrix</p></li>
+<li><p>$\frac{d^{2}\vec{y}}{dt^{2}}=-S\vec{y}$</p></li>
 </ul>
 </section>
 <section id="numerical-solutions">
@@ -369,9 +367,9 @@ document.write(`
 <section id="partial-differential-euqations-pdes">
 <h2>Partial differential euqations (PDEs)<a class="headerlink" href="#partial-differential-euqations-pdes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>heat equation: <span class="math notranslate nohighlight">\(\frac{\partial u}{\partial t}=\frac{\partial^{2} u}{\partial x^{2}}\)</span></p></li>
-<li><p>wave equation: <span class="math notranslate nohighlight">\(\frac{\partial^{2} u}{\partial t^{2}}=\frac{\partial^{2} u}{\partial x^{2}}\)</span></p></li>
-<li><p>Laplace equation: <span class="math notranslate nohighlight">\(\frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}=0\)</span></p></li>
+<li><p>heat equation: $\frac{\partial u}{\partial t}=\frac{\partial^{2} u}{\partial x^{2}}$</p></li>
+<li><p>wave equation: $\frac{\partial^{2} u}{\partial t^{2}}=\frac{\partial^{2} u}{\partial x^{2}}$</p></li>
+<li><p>Laplace equation: $\frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}=0$</p></li>
 </ul>
 </section>
 </section>
@@ -433,7 +431,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-ordinary-differential-equations-odes">Overview of ordinary differential equations (ODEs)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-odes">First order linear ODEs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-linear-odes">Second order linear ODEs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-n-equations">System of <span class="math notranslate nohighlight">\(n\)</span> equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-n-equations">System of $n$ equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solutions">Numerical solutions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-differential-euqations-pdes">Partial differential euqations (PDEs)</a></li>
 </ul>

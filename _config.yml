@@ -1,10 +1,10 @@
-title : Scientific Python QuickStart
+title : NTUAS ODE and Linear Algebra
 author: Yu-Chiao Liang
 logo: 'qe-logo-large.png'
 
 # Short description about the book
 description: >-
-  A brief introduction to Python programming for scientific applications.
+  An introduction for ODEs and linear algebra
 
 execute:
   execute_notebooks           : cache
@@ -32,3 +32,13 @@ latex:
   latex_engine                : "xelatex"
   latex_documents:
     targetname: book.tex
+
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath
