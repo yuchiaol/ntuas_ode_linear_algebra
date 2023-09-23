@@ -62,6 +62,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/index';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -376,12 +377,24 @@ document.write(`
 <li><p>factorization</p></li>
 </ul>
 <ol class="arabic simple">
-<li><p>$A = CR$; CR decomposition</p></li>
-<li><p>$A = LU$: LU elimination</p></li>
-<li><p>$A = QR$: orthogonalization (Gram-Schmidt)</p></li>
-<li><p>$S = Q\Lambda Q^{T}$: eigenvalues</p></li>
-<li><p>$A = X\Lambda X^{T}$, diagonalization</p></li>
-<li><p>$A = U\Sigma V^{T}$, singular value decomposition</p></li>
+<li><p>CR decomposition:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+A = CR
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>LU elimination:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+A = LU
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>orthogonalization (Gram-Schmidt): $$A = QR$$</p></li>
+<li><p>eigenvalues: $$S = Q\Lambda Q^{T}$$</p></li>
+<li><p>diagonalization: $$A = X\Lambda X^{T}$$</p></li>
+<li><p>singular value decomposition (SVD): $$A = U\Sigma V^{T}$$</p></li>
 </ol>
 <p>Solving linear system:</p>
 <ul class="simple">
@@ -404,27 +417,27 @@ and Professor <a class="reference external" href="https://www.stevenstrogatz.com
 </ul>
 <p>Differential Equations:</p>
 <ul class="simple">
-<li><p>website: https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/</p></li>
-<li><p>youtube: https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E</p></li>
+<li><p>website: <a class="reference external" href="https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/">https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/</a></p></li>
+<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E">https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E</a></p></li>
 </ul>
 <p>Introduction to Linear Algebra:</p>
 <ul class="simple">
-<li><p>website: https://math.mit.edu/~gs/linearalgebra/</p></li>
-<li><p>youtube: https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8</p></li>
+<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/linearalgebra/">https://math.mit.edu/~gs/linearalgebra/</a></p></li>
+<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8">https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8</a></p></li>
 </ul>
 <p>Linear Algebra and Learning from Data:</p>
 <ul class="simple">
-<li><p>website: https://math.mit.edu/~gs/learningfromdata/</p></li>
-<li><p>youtube: https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k</p></li>
+<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a></p></li>
+<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k">https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k</a></p></li>
 </ul>
 <p>Nonlinear Dynamics and Chaos:</p>
 <ul class="simple">
-<li><p>website: https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering</p></li>
-<li><p>youtube: https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V</p></li>
+<li><p>website: <a class="reference external" href="https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering">https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering</a></p></li>
+<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V">https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V</a></p></li>
 </ul>
 <p>Advanced Engineering Mathematics:</p>
 <ul class="simple">
-<li><p>website: https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929</p></li>
+<li><p>website: <a class="reference external" href="https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929">https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929</a></p></li>
 </ul>
 </section>
 <div class="toctree-wrapper compound">
