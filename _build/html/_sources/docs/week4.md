@@ -13,31 +13,52 @@ kernelspec:
 
 # Week4 -  fundamental equation of mechanics
 
-## Overview of ordinary differential equations (ODEs)
-- linear -> superposition
-- nonlinear -> cannot solve
-- constant coefficients are nice.
+\begin{eqnarray*}
+&mx''& = &-kx& - &cx'&\\
+&\uparrow& &\uparrow& &\uparrow&\\
+&\text{Force (Newton)}& &\text{spring (Hooke)}& &\text{dash pot/damping}&
+\end{eqnarray*}
 
-## First order linear ODEs
-- general form: $\frac{dy}{dt} = ay + q(t)$ or $\frac{dy}{dt} = p(t)y + q(t)$
-- $\frac{dy}{dt}$ means rate of change.
+\begin{eqnarray*}
+\Longrightarrow mx''+cx'+kx=0\\\\
+\Longrightarrow x''+ \frac{c}{m}x'+ \frac{k}{m}x=0
+\end{eqnarray*}
 
-## Second order linear ODEs
-- $\frac{d^{2}y}{dt^{2}} = -ky$, $\frac{d^{2}y}{dt^{2}}$ indicates acceleration or curvature.
-- $my^{''}+by^{'}+ky=f(t)$, where $by^{'}$ implies dampling.
+## Second order linear (homogeneous) ODEs
+- to find two independent solutions (homogeneous solutions)
+- general form: 
+\begin{eqnarray*}
+\frac{d^{2}y}{dt^{2}}+a\frac{dy}{dt}+By=0, \text{ given } y(0)=1, y'(0)=0.
+\end{eqnarray*}
+- basic method guess and plug in the exponential solution:
+\begin{eqnarray*}
+\text{try } y(t)&=&e^{rt}\\\\ 
+\rightarrow r^{2}e^{rt} + Are^{rt} &+& Be^{rt} = 0\\\\
+\rightarrow r^{2} + Ar &+& B = 0 \text{characteristic equation}.
+\end{eqnarray*}
 
-## System of $n$ equations
-- $\frac{d\vec{y}}{dt}=A\vec{y}$, where $A$ is a $n\times n$ matrix
-- $\frac{d^{2}\vec{y}}{dt^{2}}=-S\vec{y}$
+- we can solve r:
+\begin{eqnarray*}
+r=\frac{-A\pm \sqrt{A^{2}-4B}}{2}
+\end{eqnarray*}
 
-## Numerical solutions
-- MATLAB ode45
-- neural network to solve ODEs
-- ChatGPT to solve ODEs (BE CAREFULL!)
+- the plot for possible solutions y(t):
+```{figure} /_static/figures/overdamp.png
+:scale: 50%
+:name: overdamp
+```
 
-## Partial differential euqations (PDEs)
-- heat equation: $\frac{\partial u}{\partial t}=\frac{\partial^{2} u}{\partial x^{2}}$
-- wave equation: $\frac{\partial^{2} u}{\partial t^{2}}=\frac{\partial^{2} u}{\partial x^{2}}$
-- Laplace equation: $\frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}=0$
+## Case1: two real roots (overdamping)
+
+## Case2: two equal roots (critical damping)
+
+## Case 3: complex roots (undamped/underdamped)
+
+
+
+
+
+
+
 
 

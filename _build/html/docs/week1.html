@@ -324,6 +324,14 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-line-to-a-graph">Tangent line to a graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretized-differentiation">Discretized differentiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-our-first-ode">Solve our first ODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-veiw-of-odes">Geometry veiw of ODEs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superposition">Superposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-odes">Linear ODEs?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness">Existence and uniqueness</a></li>
 </ul>
             </nav>
         </div>
@@ -348,7 +356,7 @@ document.write(`
 <section id="first-order-linear-odes">
 <h2>First order linear ODEs<a class="headerlink" href="#first-order-linear-odes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>general form: $$\frac{dy}{dt} = ay + q(t) \text{ or } \frac{dy}{dt} = p(t)y + q(t)$$</p></li>
+<li><p>general form: $$\frac{dy}{dt} = ay + q(t) \text{ or } \frac{dy}{dt} = a(t)y + q(t)$$</p></li>
 <li><p>rate of change: $$\frac{dy}{dt}$$</p></li>
 </ul>
 <section id="examples-of-first-order-ode">
@@ -373,7 +381,7 @@ document.write(`
 <section id="system-of-n-equations">
 <h2>System of n equations<a class="headerlink" href="#system-of-n-equations" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>first order system, A is a n by n matrix: $$\frac{d\vec{y}}{dt}=A\vec{y}$$,</p></li>
+<li><p>first order system, A is a n by n matrix: $$\frac{d\vec{y}}{dt}=A\vec{y}$$</p></li>
 <li><p>second order system, S is a matrix: $$\frac{d^{2}\vec{y}}{dt^{2}}=-S\vec{y}$$</p></li>
 </ul>
 </section>
@@ -429,6 +437,113 @@ y(t) &amp;=&amp; \int_{0}^{t}e^{t-s}q(s)\,ds\\
 <ul class="simple">
 <li><p>Taylor expansion series:</p></li>
 </ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+f(t+\Delta t) \approx f(t)+\Delta t\frac{df}{dt}(t) + \frac{\Delta t^{2}}{2!}\frac{d^{2}f}{dt^{2}}(t)+\cdots + \frac{\Delta t^{n}}{n!}\frac{d^{n}f}{dt^{n}}(t)
+\end{eqnarray*}\]</div>
+</section>
+<section id="discretized-differentiation">
+<h2>Discretized differentiation<a class="headerlink" href="#discretized-differentiation" title="Permalink to this heading">#</a></h2>
+<p>$$\frac{dy}{dx} \approx \frac{\Delta y}{\Delta x}$$</p>
+<ul class="simple">
+<li><p>approximate y:
+$$\Delta y \approx \frac{dy}{dx}\Delta x \rightarrow y(x_{o}+\Delta x) \approx y(x_{o})+\Delta x\frac{dy}{dx}(x_{o}), \text{ assuming we know } \frac{dy}{dx}$$</p></li>
+<li><p>Newton’s method (finding roots):</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\Delta x \approx \frac{\Delta y}{\frac{dy}{dx}} \rightarrow x_{1} - x_{o} = \frac{y(x_{1})-y(x_{o})}{\frac{dy}{dx}(x_{o})}
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>central difference</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{dy}{dx}\approx \frac{\Delta y}{\Delta x} = \frac{y(x+\frac{1}{2}\Delta x)-y(x-\frac{1}{2}\Delta x)}{\Delta x}
+\end{eqnarray*}\]</div>
+</section>
+<section id="solve-our-first-ode">
+<h2>Solve our first ODE<a class="headerlink" href="#solve-our-first-ode" title="Permalink to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{dy}{dt} = ay, \text{ given } y(0) = y_{o}
+\end{eqnarray*}\]</div>
+<p>We don’t know how to solve, but we can guess the exponential-type solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = Ae^{\alpha t}, \text{ and so the problem is to find } A \text{ and } \alpha.
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{dy}{dt} = A\alpha e^{\alpha t} \Longrightarrow \alpha = a \Longrightarrow y(t) = Ae^{at}
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(0) = y_o{} = Ae^{a\times 0} = A \Longrightarrow y(t)=y_{o}e^{at}
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>if a&gt;0, then the solution grows exponentially</p></li>
+<li><p>if a&lt;0, then the solution decays exponentially</p></li>
+</ul>
+</section>
+<section id="geometry-veiw-of-odes">
+<h2>Geometry veiw of ODEs<a class="headerlink" href="#geometry-veiw-of-odes" title="Permalink to this heading">#</a></h2>
+<p>analytic vs geometry:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y'(t)=f(x,y) \leftrightarrow \text{ direction field}\\\\
+\text{solution } y(x) \leftrightarrow \text{ integral curve}
+\end{eqnarray*}\]</div>
+</section>
+<section id="superposition">
+<h2>Superposition<a class="headerlink" href="#superposition" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>additivity</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+F(x_{1}+x_{2}) = F(x_{1}) + F(x_{2})
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>homogeneity (porportionality a is a scaler)</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+F(ax) = aF(x)
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>use additivity and homogeneity, we can derive:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+F(ax_{1}+bx_{2}) = aF(x_{1}) + bF(x_{2}),
+\end{eqnarray*}\]</div>
+<p>which is also called linear combination</p>
+<section id="linear-odes">
+<h3>Linear ODEs?<a class="headerlink" href="#linear-odes" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>are they linear ODEs?</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y'=ky, \\
+y'+y^{3}t=y,\\
+y'+\cos{x}y=x^{3},\\
+\frac{y'}{y}=t^{2},\\ 
+x^{2}yy'+4x=x^{3}
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>show that</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y'+y^{2}=q(t)
+\end{eqnarray*}\]</div>
+<p>does not satisify superposition.</p>
+</section>
+</section>
+<section id="existence-and-uniqueness">
+<h2>Existence and uniqueness<a class="headerlink" href="#existence-and-uniqueness" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -509,6 +624,14 @@ y(t) &amp;=&amp; \int_{0}^{t}e^{t-s}q(s)\,ds\\
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-line-to-a-graph">Tangent line to a graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discretized-differentiation">Discretized differentiation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-our-first-ode">Solve our first ODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-veiw-of-odes">Geometry veiw of ODEs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superposition">Superposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-odes">Linear ODEs?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness">Existence and uniqueness</a></li>
 </ul>
   </nav></div>
 

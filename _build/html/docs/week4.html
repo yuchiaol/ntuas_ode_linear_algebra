@@ -62,6 +62,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/week4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -308,12 +309,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-ordinary-differential-equations-odes">Overview of ordinary differential equations (ODEs)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-odes">First order linear ODEs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-linear-odes">Second order linear ODEs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-n-equations">System of $n$ equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solutions">Numerical solutions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-differential-euqations-pdes">Partial differential euqations (PDEs)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-linear-homogeneous-odes">Second order linear (homogeneous) ODEs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case1-two-real-roots-overdamping">Case1: two real roots (overdamping)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case2-two-equal-roots-critical-damping">Case2: two equal roots (critical damping)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-complex-roots-undamped-underdamped">Case 3: complex roots (undamped/underdamped)</a></li>
 </ul>
             </nav>
         </div>
@@ -327,50 +326,58 @@ document.write(`
                   
   <section id="week4-fundamental-equation-of-mechanics">
 <span id="week4"></span><h1>Week4 -  fundamental equation of mechanics<a class="headerlink" href="#week4-fundamental-equation-of-mechanics" title="Permalink to this heading">#</a></h1>
-<section id="overview-of-ordinary-differential-equations-odes">
-<h2>Overview of ordinary differential equations (ODEs)<a class="headerlink" href="#overview-of-ordinary-differential-equations-odes" title="Permalink to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+&amp;mx''&amp; = &amp;-kx&amp; - &amp;cx'&amp;\\
+&amp;\uparrow&amp; &amp;\uparrow&amp; &amp;\uparrow&amp;\\
+&amp;\text{Force (Newton)}&amp; &amp;\text{spring (Hooke)}&amp; &amp;\text{dash pot/damping}&amp;
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\Longrightarrow mx''+cx'+kx=0\\\\
+\Longrightarrow x''+ \frac{c}{m}x'+ \frac{k}{m}x=0
+\end{eqnarray*}\]</div>
+<section id="second-order-linear-homogeneous-odes">
+<h2>Second order linear (homogeneous) ODEs<a class="headerlink" href="#second-order-linear-homogeneous-odes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>linear -&gt; superposition</p></li>
-<li><p>nonlinear -&gt; cannot solve</p></li>
-<li><p>constant coefficients are nice.</p></li>
+<li><p>to find two independent solutions (homogeneous solutions)</p></li>
+<li><p>general form:</p></li>
 </ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{d^{2}y}{dt^{2}}+a\frac{dy}{dt}+By=0, \text{ given } y(0)=1, y'(0)=0.
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>basic method guess and plug in the exponential solution:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\text{try } y(t)&amp;=&amp;e^{rt}\\\\ 
+\rightarrow r^{2}e^{rt} + Are^{rt} &amp;+&amp; Be^{rt} = 0\\\\
+\rightarrow r^{2} + Ar &amp;+&amp; B = 0 \text{characteristic equation}.
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>we can solve r:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r=\frac{-A\pm \sqrt{A^{2}-4B}}{2}
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>the plot for possible solutions y(t):</p></li>
+</ul>
+<figure class="align-default" id="overdamp">
+<a class="reference internal image-reference" href="../_images/overdamp.png"><img alt="../_images/overdamp.png" src="../_images/overdamp.png" style="width: 338.0px; height: 258.0px;" /></a>
+</figure>
 </section>
-<section id="first-order-linear-odes">
-<h2>First order linear ODEs<a class="headerlink" href="#first-order-linear-odes" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>general form: $\frac{dy}{dt} = ay + q(t)$ or $\frac{dy}{dt} = p(t)y + q(t)$</p></li>
-<li><p>$\frac{dy}{dt}$ means rate of change.</p></li>
-</ul>
+<section id="case1-two-real-roots-overdamping">
+<h2>Case1: two real roots (overdamping)<a class="headerlink" href="#case1-two-real-roots-overdamping" title="Permalink to this heading">#</a></h2>
 </section>
-<section id="second-order-linear-odes">
-<h2>Second order linear ODEs<a class="headerlink" href="#second-order-linear-odes" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>$\frac{d^{2}y}{dt^{2}} = -ky$, $\frac{d^{2}y}{dt^{2}}$ indicates acceleration or curvature.</p></li>
-<li><p>$my^{‘’}+by^{‘}+ky=f(t)$, where $by^{‘}$ implies dampling.</p></li>
-</ul>
+<section id="case2-two-equal-roots-critical-damping">
+<h2>Case2: two equal roots (critical damping)<a class="headerlink" href="#case2-two-equal-roots-critical-damping" title="Permalink to this heading">#</a></h2>
 </section>
-<section id="system-of-n-equations">
-<h2>System of $n$ equations<a class="headerlink" href="#system-of-n-equations" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>$\frac{d\vec{y}}{dt}=A\vec{y}$, where $A$ is a $n\times n$ matrix</p></li>
-<li><p>$\frac{d^{2}\vec{y}}{dt^{2}}=-S\vec{y}$</p></li>
-</ul>
-</section>
-<section id="numerical-solutions">
-<h2>Numerical solutions<a class="headerlink" href="#numerical-solutions" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>MATLAB ode45</p></li>
-<li><p>neural network to solve ODEs</p></li>
-<li><p>ChatGPT to solve ODEs (BE CAREFULL!)</p></li>
-</ul>
-</section>
-<section id="partial-differential-euqations-pdes">
-<h2>Partial differential euqations (PDEs)<a class="headerlink" href="#partial-differential-euqations-pdes" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>heat equation: $\frac{\partial u}{\partial t}=\frac{\partial^{2} u}{\partial x^{2}}$</p></li>
-<li><p>wave equation: $\frac{\partial^{2} u}{\partial t^{2}}=\frac{\partial^{2} u}{\partial x^{2}}$</p></li>
-<li><p>Laplace equation: $\frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}=0$</p></li>
-</ul>
+<section id="case-3-complex-roots-undamped-underdamped">
+<h2>Case 3: complex roots (undamped/underdamped)<a class="headerlink" href="#case-3-complex-roots-undamped-underdamped" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -428,12 +435,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-ordinary-differential-equations-odes">Overview of ordinary differential equations (ODEs)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-odes">First order linear ODEs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-linear-odes">Second order linear ODEs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-n-equations">System of $n$ equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solutions">Numerical solutions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-differential-euqations-pdes">Partial differential euqations (PDEs)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-linear-homogeneous-odes">Second order linear (homogeneous) ODEs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case1-two-real-roots-overdamping">Case1: two real roots (overdamping)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case2-two-equal-roots-critical-damping">Case2: two equal roots (critical damping)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-complex-roots-undamped-underdamped">Case 3: complex roots (undamped/underdamped)</a></li>
 </ul>
   </nav></div>
 

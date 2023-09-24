@@ -19,7 +19,7 @@ kernelspec:
 - constant coefficients are nice.
 
 ## First order linear ODEs
-- general form: $$\frac{dy}{dt} = ay + q(t) \text{ or } \frac{dy}{dt} = p(t)y + q(t)$$
+- general form: $$\frac{dy}{dt} = ay + q(t) \text{ or } \frac{dy}{dt} = a(t)y + q(t)$$
 - rate of change: $$\frac{dy}{dt}$$
 
 ### Examples of first order ODE. 
@@ -36,7 +36,7 @@ solve and assume y(0)=1.
 - fundamental equation of mechanics $$my''+by'+ky=f(t),$$ where by' implies dampling.
 
 ## System of n equations
-- first order system, A is a n by n matrix: $$\frac{d\vec{y}}{dt}=A\vec{y}$$,
+- first order system, A is a n by n matrix: $$\frac{d\vec{y}}{dt}=A\vec{y}$$
 - second order system, S is a matrix: $$\frac{d^{2}\vec{y}}{dt^{2}}=-S\vec{y}$$
 
 ## Numerical solutions
@@ -76,6 +76,85 @@ y(t) &=& \int_{0}^{t}e^{t-s}q(s)\,ds\\
 
 ## Tangent line to a graph
 - Taylor expansion series: 
+\begin{eqnarray*}
+f(t+\Delta t) \approx f(t)+\Delta t\frac{df}{dt}(t) + \frac{\Delta t^{2}}{2!}\frac{d^{2}f}{dt^{2}}(t)+\cdots + \frac{\Delta t^{n}}{n!}\frac{d^{n}f}{dt^{n}}(t)
+\end{eqnarray*}
+
+## Discretized differentiation
+$$\frac{dy}{dx} \approx \frac{\Delta y}{\Delta x}$$
+- approximate y:
+$$\Delta y \approx \frac{dy}{dx}\Delta x \rightarrow y(x_{o}+\Delta x) \approx y(x_{o})+\Delta x\frac{dy}{dx}(x_{o}), \text{ assuming we know } \frac{dy}{dx}$$
+- Newton's method (finding roots):
+\begin{eqnarray*}
+\Delta x \approx \frac{\Delta y}{\frac{dy}{dx}} \rightarrow x_{1} - x_{o} = \frac{y(x_{1})-y(x_{o})}{\frac{dy}{dx}(x_{o})}
+\end{eqnarray*}
+- central difference
+\begin{eqnarray*}
+\frac{dy}{dx}\approx \frac{\Delta y}{\Delta x} = \frac{y(x+\frac{1}{2}\Delta x)-y(x-\frac{1}{2}\Delta x)}{\Delta x}
+\end{eqnarray*}
+
+## Solve our first ODE
+\begin{eqnarray*}
+\frac{dy}{dt} = ay, \text{ given } y(0) = y_{o}
+\end{eqnarray*}
+We don't know how to solve, but we can guess the exponential-type solution:
+\begin{eqnarray*}
+y(t) = Ae^{\alpha t}, \text{ and so the problem is to find } A \text{ and } \alpha.
+\end{eqnarray*}
+\begin{eqnarray*}
+\frac{dy}{dt} = A\alpha e^{\alpha t} \Longrightarrow \alpha = a \Longrightarrow y(t) = Ae^{at}
+\end{eqnarray*}
+\begin{eqnarray*}
+y(0) = y_o{} = Ae^{a\times 0} = A \Longrightarrow y(t)=y_{o}e^{at}
+\end{eqnarray*}
+- if a>0, then the solution grows exponentially
+- if a<0, then the solution decays exponentially
+
+## Geometry veiw of ODEs
+analytic vs geometry:
+\begin{eqnarray*}
+y'(t)=f(x,y) \leftrightarrow \text{ direction field}\\\\
+\text{solution } y(x) \leftrightarrow \text{ integral curve}
+\end{eqnarray*}
+
+## Superposition
+- additivity
+\begin{eqnarray*}
+F(x_{1}+x_{2}) = F(x_{1}) + F(x_{2})
+\end{eqnarray*}
+- homogeneity (porportionality a is a scaler)
+\begin{eqnarray*}
+F(ax) = aF(x)
+\end{eqnarray*}
+- use additivity and homogeneity, we can derive:
+\begin{eqnarray*}
+F(ax_{1}+bx_{2}) = aF(x_{1}) + bF(x_{2}),
+\end{eqnarray*}
+which is also called linear combination
+
+### Linear ODEs?
+- are they linear ODEs?
+\begin{eqnarray*}
+y'=ky, \\
+y'+y^{3}t=y,\\
+y'+\cos{x}y=x^{3},\\
+\frac{y'}{y}=t^{2},\\ 
+x^{2}yy'+4x=x^{3}
+\end{eqnarray*}
+- show that
+\begin{eqnarray*}
+y'+y^{2}=q(t)
+\end{eqnarray*}
+does not satisify superposition.
+
+## Existence and uniqueness
+
+
+
+
+
+
+
 
 
 
