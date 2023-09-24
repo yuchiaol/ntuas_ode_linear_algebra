@@ -141,11 +141,10 @@ y'+\cos{x}y=x^{3},\\
 \frac{y'}{y}=t^{2},\\ 
 x^{2}yy'+4x=x^{3}
 \end{eqnarray*}
-- show that
+- show below ODE does not satisify superposition.
 \begin{eqnarray*}
 y'+y^{2}=q(t)
 \end{eqnarray*}
-does not satisify superposition.
 
 ## Existence and uniqueness
 
