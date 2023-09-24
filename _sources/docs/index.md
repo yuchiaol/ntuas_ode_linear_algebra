@@ -1,6 +1,12 @@
 # Applied Mathematics (Ⅰ)
 
-This is a short sequence of lectures on Applied Mathematics (Ⅰ) for undergraduate students at Department of Atmospheric Sciences, National Taiwan University, written by [Yu-Chiao Liang](https://littleyuchiao.wixsite.com/yuchiaol).
+This is a short sequence of lectures on Applied Mathematics (Ⅰ) for undergraduate students at the Department of Atmospheric Sciences, National Taiwan University, written by [Yu-Chiao Liang](https://littleyuchiao.wixsite.com/yuchiaol).
+
+```{note}
+Some of the course materials were modified from Professor [Gilbert Strang](https://math.mit.edu/~gs/)'s,
+Professor [Arthur Mattuck](https://en.wikipedia.org/wiki/Arthur_Mattuck)'s,
+and Professor [Steven Strogatz](https://www.stevenstrogatz.com/)'s course materials, and many online materials.
+```
 
 ## Class information
 - Curriculum Number: AtmSci2011
@@ -49,21 +55,27 @@ A = CR
 \begin{eqnarray*}
 A = LU
 \end{eqnarray*}
-3. orthogonalization (Gram-Schmidt): $$A = QR$$
-4. eigenvalues: $$S = Q\Lambda Q^{T}$$
-5. diagonalization: $$A = X\Lambda X^{T}$$
-6. singular value decomposition (SVD): $$A = U\Sigma V^{T}$$
+3. orthogonalization (Gram-Schmidt): 
+\begin{eqnarray*}
+A = QR
+\end{eqnarray*}
+4. eigenvalues: 
+\begin{eqnarray*}
+S = Q\Lambda Q^{T}
+\end{eqnarray*}
+5. diagonalization: 
+\begin{eqnarray*}
+A = X\Lambda X^{T}
+\end{eqnarray*}
+6. singular value decomposition (SVD): 
+\begin{eqnarray*}
+A = U\Sigma V^{T}
+\end{eqnarray*}
 
 Solving linear system:
 - matrix exponential
 - phase plane: source, sink, saddle
 
-
-```{note}
-The course materials were modified from Professor [Gilbert Strang](https://math.mit.edu/~gs/)'s, 
-Professor [Arthur Mattuck](https://en.wikipedia.org/wiki/Arthur_Mattuck)'s, 
-and Professor [Steven Strogatz](https://www.stevenstrogatz.com/)'s course materials.
-```
 
 ## Textbooks and videos
 Differential Equations and Linear Algebra:
