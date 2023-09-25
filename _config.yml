@@ -31,11 +31,16 @@ bibtex_bibfiles:
 latex:
   latex_engine                : "xelatex"
   latex_documents:
-    targetname: book.tex
+     targetname: book.tex
 
 sphinx:
   config:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+    - sphinx_togglebutton
 
 parse:
   myst_enable_extensions:

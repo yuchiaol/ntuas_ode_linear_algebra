@@ -28,7 +28,7 @@ kernelspec:
 - to find two independent solutions (homogeneous solutions)
 - general form: 
 \begin{eqnarray*}
-\frac{d^{2}y}{dt^{2}}+a\frac{dy}{dt}+By=0, \text{ given } y(0)=1, y'(0)=0.
+\frac{d^{2}y}{dt^{2}}+A\frac{dy}{dt}+By=0, \text{ given } y(0)=1, y'(0)=0.
 \end{eqnarray*}
 - basic method guess and plug in the exponential solution:
 \begin{eqnarray*}
@@ -47,7 +47,12 @@ r=\frac{-A\pm \sqrt{A^{2}-4B}}{2}
 r_{1} \neq r_{2} \rightarrow y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t}
 \end{eqnarray*}
 
-- example
+```{note}
+Why the solutions are always "damped"? Can you link this result to the value of r?
+```
+
+````{prf:example}
+:label: my-example
 
 \begin{eqnarray*}
 y''+4y'+3y=0, y(0)=1, y'(0)=0
@@ -67,7 +72,7 @@ y'(0)&=&0=-3c_{1}-c_{2}\\\\
 &\Longrightarrow& c_{1}=\frac{-1}{2}, c_{2}=\frac{3}{2}\\\\
 &\Longrightarrow& y(t)=\frac{-1}{2}e^{-3t}+\frac{3}{2}e^{-t}
 \end{eqnarray*}
-
+````
 
 - the plot for possible solutions y(t):
 ```{figure} /_static/figures/overdamp.png
@@ -76,11 +81,81 @@ y'(0)&=&0=-3c_{1}-c_{2}\\\\
 ```
 
 ## Case2: two equal roots (critical damping)
+\begin{eqnarray*}
+r_{1} = r_{2} = -a \rightarrow (r+a)^{2}=0 \rightarrow r^{2}+2ar+a^{2}=0.
+\end{eqnarray*}
+
+So the ODE can be expressed as:
+\begin{eqnarray*}
+y''+2ay'+a^{2}y=0.
+\end{eqnarray*}
+
+Now we only have one solution:
+\begin{eqnarray*}
+y(t)=e^{-at}=y_{1}(t)
+\end{eqnarray*}
+
+But we need one more. Let's try this:
+\begin{eqnarray*}
+\text{let } y_{2}(t)=u(t)y_{1}(t)\\\\
+a^{2}&\times& (y_{2} = ue^{-at})\\\\
+2a&\times& (y_{2}'=u(-ae^{-at}) +u'e^{-at})\\\\
+1&\times& (y_{2}''=a^{2}e^{-at}u-ae^{-at}u'-ae^{-at}u'+e^{-at}u'')\\\\
+&\Longrightarrow& 0 = 0 + 0 + e^{-at}u''\\\\
+&\Longrightarrow& u'' = 0 \rightarrow u'=c_{1} \rightarrow u(t) = c_{1}t+c_{2}.
+\end{eqnarray*}
+
+We take another solution and obtain the general solution:
+\begin{eqnarray*}
+y_{2}(t) &=& te^{-at}\\\\
+y(t) &=& Cy_{1}(t) + Dy_{2}(t) = Ce^{-at}+Dte^{-at}
+\end{eqnarray*}
 
 ## Case 3: complex roots (undamped/underdamped)
+We get the complex solution
+\begin{eqnarray*}
+y(t) = e^{(a+bi)t} = u + iv, \text{ where } u, v \in \mathbb{R}
+\end{eqnarray*}
 
+````{prf:theorem}
+:label: my-theorem
 
+If u+iv is the complex solution to
 
+\begin{eqnarray*}
+y''+Ay'+By = 0,
+\end{eqnarray*}
+
+where A and B are real. Then u and v are real solutions.
+
+````
+
+````{prf:proof}
+:class: dropdown
+Plug the complex solution into the ODE:
+
+\begin{eqnarray*}
+(u+iv)'' + A(u+iv)' + B(u+iv) = 0\\\\
+\Longrightarrow (u''+Au'+Bu) + i(v''+Av'+Bv) = 0.
+\end{eqnarray*}
+
+The only way that this equation holds is the real part equal to zero and imaginary part equal to zero. 
+So the linear combination of u and v is the general solution:
+
+\begin{eqnarray*}
+y(t) = c_{1}u(t) + c_{2}v(t)
+\end{eqnarray*}
+
+````
+So the complex solution is
+\begin{eqnarray*}
+\tilde{y_c}(t) = e^{at+ibt}=e^{at}\cos{bt} + ie^{at}\sin{bt}.
+\end{eqnarray*}
+
+And the general solution is
+\begin{eqnarray*}
+y(t) = e^{at}(c_{1}\cos{bt} + c_{2}\sin{bt})
+\end{eqnarray*}
 
 
 
