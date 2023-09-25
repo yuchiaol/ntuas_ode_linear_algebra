@@ -338,6 +338,9 @@ document.write(`
 \Longrightarrow mx''+cx'+kx=0\\\\
 \Longrightarrow x''+ \frac{c}{m}x'+ \frac{k}{m}x=0
 \end{eqnarray*}\]</div>
+<figure class="align-default" id="car">
+<a class="reference internal image-reference" href="../_images/car_ode.jpeg"><img alt="../_images/car_ode.jpeg" src="../_images/car_ode.jpeg" style="width: 403.20000000000005px; height: 302.40000000000003px;" /></a>
+</figure>
 <section id="second-order-linear-homogeneous-odes">
 <h2>Second order linear (homogeneous) ODEs<a class="headerlink" href="#second-order-linear-homogeneous-odes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -371,11 +374,7 @@ r=\frac{-A\pm \sqrt{A^{2}-4B}}{2}
 \[\begin{eqnarray*}
 r_{1} \neq r_{2} \rightarrow y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t}
 \end{eqnarray*}\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Why the solutions are always “damped”? Can you link this result to the value of r?</p>
-</div>
-<div class="proof example admonition" id="my-example">
+<div class="proof example admonition" id="my-example1">
 <p class="admonition-title"><span class="caption-number">Example 1 </span></p>
 <section class="example-content" id="proof-content">
 <div class="amsmath math notranslate nohighlight">
@@ -398,7 +397,11 @@ y'(0)&amp;=&amp;0=-3c_{1}-c_{2}\\\\
 &amp;\Longrightarrow&amp; y(t)=\frac{-1}{2}e^{-3t}+\frac{3}{2}e^{-t}
 \end{eqnarray*}\]</div>
 </section>
-</div><ul class="simple">
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Why the solutions are always “damped”? Can you link this result to the value of r?</p>
+</div>
+<ul class="simple">
 <li><p>the plot for possible solutions y(t):</p></li>
 </ul>
 <figure class="align-default" id="overdamp">
@@ -443,7 +446,7 @@ y(t) &amp;=&amp; Cy_{1}(t) + Dy_{2}(t) = Ce^{-at}+Dte^{-at}
 <p>We get the complex solution</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-y(t) = e^{(a+bi)t} = u + iv, \text{ where } u, v \in \mathbb{R}
+y_{c}(t) = e^{(a+bi)t} = u + iv, \text{ where } u, v \in \mathbb{R}
 \end{eqnarray*}\]</div>
 <div class="proof theorem admonition" id="my-theorem">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
@@ -479,6 +482,77 @@ y(t) = c_{1}u(t) + c_{2}v(t)
 \[\begin{eqnarray*}
 y(t) = e^{at}(c_{1}\cos{bt} + c_{2}\sin{bt})
 \end{eqnarray*}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>How about considering this complex solution</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{c}(t) = e^{at-ibt} \text{?}
+\end{eqnarray*}\]</div>
+<p>Can we obtain the same general solution? And why?</p>
+</div>
+<div class="proof example admonition" id="my-example2">
+<p class="admonition-title"><span class="caption-number">Example 2 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+4y'+5y=0, y(0)=1, y'(0)=0
+\end{eqnarray*}\]</div>
+<p>The characteristic equation is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r^{2}&amp;+&amp;4r+5=0\\\\
+&amp;\Longrightarrow&amp; r=\frac{-4\pm \sqrt{-4}}{2} = -2\pm i\\\\
+\end{eqnarray*}\]</div>
+<p>So the complex solution is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+e^{(-2\pm i)t} \rightarrow e^{-2t}(\cos{t}\pm \sin{t})
+\end{eqnarray*}\]</div>
+<p>The general solution is therefore:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) &amp;=&amp; e^{-2t}(c_{1}\cos{t}+c_{2}\sin{t})\\\\
+y'(t) &amp;=&amp; -2e^{-2t}(c_{1}\cos{t}+c_{2}\sin{t}) + e^{-2t}(-c_{1}\sin{t}+c_{2}\cos{t})
+\end{eqnarray*}\]</div>
+<p>Use initial conditions</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(0)&amp;=&amp;1=c_{1}, \\\\
+y'(0)&amp;=&amp;0=-2c_{1}+c_{2} \rightarrow c_{2}=2\\\\
+&amp;\Longrightarrow&amp; y(t)=e^{-2t}(\cos{t}+2\sin{t})=\sqrt{5}e^{-2t}\cos{}(t-\phi)
+\end{eqnarray*}\]</div>
+<p>This is a solution underdamped.</p>
+</section>
+</div><p>Let us now revisit the problem with slightly modification on the coefficients:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y'' &amp;+&amp; 2py'+\omega_{o}^{2}y=0,\\\\
+\text{where } &amp;\omega_{o}&amp; \text{is the natural frequency and p represents the damping.} 
+\end{eqnarray*}\]</div>
+<p>The characteristic equation is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r^{2} + 2pr + \omega_{o}^{2} = 0 \\\\
+\rightarrow r = -p \pm \sqrt{p^{2}-\omega_{o}^{2}}
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>if p=0, then there is no damping or called undamped.</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+&amp;&amp;y''+\omega_{o}^{2}y=0\\\\
+&amp;\Longrightarrow&amp; r=\pm i\omega_{o}\\\\
+&amp;\Longrightarrow&amp; y(t) = c_{1}\cos{\omega_{o}t} + c_{2}\sin{\omega_{o}t} = A\cos{}(\omega_{o}t-\phi)
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>if another case</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+p^{2}-\omega_{o}^{2} &lt; 0 \rightarrow p&lt;\omega_{o},
+\end{eqnarray*}\]</div>
+<p>then we call the solution underdamped.</p>
 </section>
 </section>
 

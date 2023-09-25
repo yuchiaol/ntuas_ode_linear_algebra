@@ -24,6 +24,11 @@ kernelspec:
 \Longrightarrow x''+ \frac{c}{m}x'+ \frac{k}{m}x=0
 \end{eqnarray*}
 
+```{figure} /_static/figures/car_ode.jpeg
+:scale: 10%
+:name: car
+```
+
 ## Second order linear (homogeneous) ODEs
 - to find two independent solutions (homogeneous solutions)
 - general form: 
@@ -47,12 +52,8 @@ r=\frac{-A\pm \sqrt{A^{2}-4B}}{2}
 r_{1} \neq r_{2} \rightarrow y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t}
 \end{eqnarray*}
 
-```{note}
-Why the solutions are always "damped"? Can you link this result to the value of r?
-```
-
 ````{prf:example}
-:label: my-example
+:label: my-example1
 
 \begin{eqnarray*}
 y''+4y'+3y=0, y(0)=1, y'(0)=0
@@ -73,6 +74,10 @@ y'(0)&=&0=-3c_{1}-c_{2}\\\\
 &\Longrightarrow& y(t)=\frac{-1}{2}e^{-3t}+\frac{3}{2}e^{-t}
 \end{eqnarray*}
 ````
+
+```{note}
+Why the solutions are always "damped"? Can you link this result to the value of r?
+```
 
 - the plot for possible solutions y(t):
 ```{figure} /_static/figures/overdamp.png
@@ -114,7 +119,7 @@ y(t) &=& Cy_{1}(t) + Dy_{2}(t) = Ce^{-at}+Dte^{-at}
 ## Case 3: complex roots (undamped/underdamped)
 We get the complex solution
 \begin{eqnarray*}
-y(t) = e^{(a+bi)t} = u + iv, \text{ where } u, v \in \mathbb{R}
+y_{c}(t) = e^{(a+bi)t} = u + iv, \text{ where } u, v \in \mathbb{R}
 \end{eqnarray*}
 
 ````{prf:theorem}
@@ -156,6 +161,78 @@ And the general solution is
 \begin{eqnarray*}
 y(t) = e^{at}(c_{1}\cos{bt} + c_{2}\sin{bt})
 \end{eqnarray*}
+
+```{note}
+How about considering this complex solution
+\begin{eqnarray*}
+y_{c}(t) = e^{at-ibt} \text{?}
+\end{eqnarray*}
+Can we obtain the same general solution? And why?
+```
+
+````{prf:example}
+:label: my-example2
+
+\begin{eqnarray*}
+y''+4y'+5y=0, y(0)=1, y'(0)=0
+\end{eqnarray*}
+
+The characteristic equation is
+\begin{eqnarray*}
+r^{2}&+&4r+5=0\\\\
+&\Longrightarrow& r=\frac{-4\pm \sqrt{-4}}{2} = -2\pm i\\\\
+\end{eqnarray*}
+
+So the complex solution is:
+\begin{eqnarray*}
+e^{(-2\pm i)t} \rightarrow e^{-2t}(\cos{t}\pm \sin{t})
+\end{eqnarray*}
+
+The general solution is therefore:
+\begin{eqnarray*}
+y(t) &=& e^{-2t}(c_{1}\cos{t}+c_{2}\sin{t})\\\\
+y'(t) &=& -2e^{-2t}(c_{1}\cos{t}+c_{2}\sin{t}) + e^{-2t}(-c_{1}\sin{t}+c_{2}\cos{t})
+\end{eqnarray*}
+
+Use initial conditions
+\begin{eqnarray*}
+y(0)&=&1=c_{1}, \\\\
+y'(0)&=&0=-2c_{1}+c_{2} \rightarrow c_{2}=2\\\\
+&\Longrightarrow& y(t)=e^{-2t}(\cos{t}+2\sin{t})=\sqrt{5}e^{-2t}\cos{}(t-\phi)
+\end{eqnarray*}
+
+This is a solution underdamped.
+
+````
+
+Let us now revisit the problem with slightly modification on the coefficients:
+\begin{eqnarray*}
+y'' &+& 2py'+\omega_{o}^{2}y=0,\\\\
+\text{where } &\omega_{o}& \text{is the natural frequency and p represents the damping.} 
+\end{eqnarray*}
+
+The characteristic equation is
+\begin{eqnarray*}
+r^{2} + 2pr + \omega_{o}^{2} = 0 \\\\
+\rightarrow r = -p \pm \sqrt{p^{2}-\omega_{o}^{2}}
+\end{eqnarray*}
+
+- if p=0, then there is no damping or called undamped.
+\begin{eqnarray*}
+&&y''+\omega_{o}^{2}y=0\\\\
+&\Longrightarrow& r=\pm i\omega_{o}\\\\
+&\Longrightarrow& y(t) = c_{1}\cos{\omega_{o}t} + c_{2}\sin{\omega_{o}t} = A\cos{}(\omega_{o}t-\phi)
+\end{eqnarray*}
+
+- if another case
+\begin{eqnarray*}
+p^{2}-\omega_{o}^{2} < 0 \rightarrow p<\omega_{o},
+\end{eqnarray*}
+then we call the solution underdamped.
+
+
+
+
 
 
 
