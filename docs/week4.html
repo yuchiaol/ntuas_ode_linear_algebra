@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -345,7 +346,7 @@ document.write(`
 </ul>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-\frac{d^{2}y}{dt^{2}}+a\frac{dy}{dt}+By=0, \text{ given } y(0)=1, y'(0)=0.
+\frac{d^{2}y}{dt^{2}}+A\frac{dy}{dt}+By=0, \text{ given } y(0)=1, y'(0)=0.
 \end{eqnarray*}\]</div>
 <ul class="simple">
 <li><p>basic method guess and plug in the exponential solution:</p></li>
@@ -370,9 +371,13 @@ r=\frac{-A\pm \sqrt{A^{2}-4B}}{2}
 \[\begin{eqnarray*}
 r_{1} \neq r_{2} \rightarrow y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t}
 \end{eqnarray*}\]</div>
-<ul class="simple">
-<li><p>example</p></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Why the solutions are always “damped”? Can you link this result to the value of r?</p>
+</div>
+<div class="proof example admonition" id="my-example">
+<p class="admonition-title"><span class="caption-number">Example 1 </span></p>
+<section class="example-content" id="proof-content">
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
 y''+4y'+3y=0, y(0)=1, y'(0)=0
@@ -392,7 +397,8 @@ y'(0)&amp;=&amp;0=-3c_{1}-c_{2}\\\\
 &amp;\Longrightarrow&amp; c_{1}=\frac{-1}{2}, c_{2}=\frac{3}{2}\\\\
 &amp;\Longrightarrow&amp; y(t)=\frac{-1}{2}e^{-3t}+\frac{3}{2}e^{-t}
 \end{eqnarray*}\]</div>
-<ul class="simple">
+</section>
+</div><ul class="simple">
 <li><p>the plot for possible solutions y(t):</p></li>
 </ul>
 <figure class="align-default" id="overdamp">
@@ -401,9 +407,78 @@ y'(0)&amp;=&amp;0=-3c_{1}-c_{2}\\\\
 </section>
 <section id="case2-two-equal-roots-critical-damping">
 <h2>Case2: two equal roots (critical damping)<a class="headerlink" href="#case2-two-equal-roots-critical-damping" title="Permalink to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r_{1} = r_{2} = -a \rightarrow (r+a)^{2}=0 \rightarrow r^{2}+2ar+a^{2}=0.
+\end{eqnarray*}\]</div>
+<p>So the ODE can be expressed as:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+2ay'+a^{2}y=0.
+\end{eqnarray*}\]</div>
+<p>Now we only have one solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t)=e^{-at}=y_{1}(t)
+\end{eqnarray*}\]</div>
+<p>But we need one more. Let’s try this:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\text{let } y_{2}(t)=u(t)y_{1}(t)\\\\
+a^{2}&amp;\times&amp; (y_{2} = ue^{-at})\\\\
+2a&amp;\times&amp; (y_{2}'=u(-ae^{-at}) +u'e^{-at})\\\\
+1&amp;\times&amp; (y_{2}''=a^{2}e^{-at}u-ae^{-at}u'-ae^{-at}u'+e^{-at}u'')\\\\
+&amp;\Longrightarrow&amp; 0 = 0 + 0 + e^{-at}u''\\\\
+&amp;\Longrightarrow&amp; u'' = 0 \rightarrow u'=c_{1} \rightarrow u(t) = c_{1}t+c_{2}.
+\end{eqnarray*}\]</div>
+<p>We take another solution and obtain the general solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{2}(t) &amp;=&amp; te^{-at}\\\\
+y(t) &amp;=&amp; Cy_{1}(t) + Dy_{2}(t) = Ce^{-at}+Dte^{-at}
+\end{eqnarray*}\]</div>
 </section>
 <section id="case-3-complex-roots-undamped-underdamped">
 <h2>Case 3: complex roots (undamped/underdamped)<a class="headerlink" href="#case-3-complex-roots-undamped-underdamped" title="Permalink to this heading">#</a></h2>
+<p>We get the complex solution</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = e^{(a+bi)t} = u + iv, \text{ where } u, v \in \mathbb{R}
+\end{eqnarray*}\]</div>
+<div class="proof theorem admonition" id="my-theorem">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>If u+iv is the complex solution to</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+Ay'+By = 0,
+\end{eqnarray*}\]</div>
+<p>where A and B are real. Then u and v are real solutions.</p>
+</section>
+</div><div class="proof dropdown admonition" id="proof">
+<p>Proof. Plug the complex solution into the ODE:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(u+iv)'' + A(u+iv)' + B(u+iv) = 0\\\\
+\Longrightarrow (u''+Au'+Bu) + i(v''+Av'+Bv) = 0.
+\end{eqnarray*}\]</div>
+<p>The only way that this equation holds is the real part equal to zero and imaginary part equal to zero.
+So the linear combination of u and v is the general solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = c_{1}u(t) + c_{2}v(t)
+\end{eqnarray*}\]</div>
+</div>
+<p>So the complex solution is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\tilde{y_c}(t) = e^{at+ibt}=e^{at}\cos{bt} + ie^{at}\sin{bt}.
+\end{eqnarray*}\]</div>
+<p>And the general solution is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = e^{at}(c_{1}\cos{bt} + c_{2}\sin{bt})
+\end{eqnarray*}\]</div>
 </section>
 </section>
 
