@@ -230,12 +230,29 @@ p^{2}-\omega_{o}^{2} < 0 \rightarrow p<\omega_{o},
 \end{eqnarray*}
 then we call the solution underdamped.
 
+````{prf:definition}
+:label: my-definition1
+We define the pseudo-frequency as:
+\begin{eqnarray*}
+\omega_{d}^{2} = \omega_{o}^{2} - p^{2}
+\end{eqnarray*}
+````
 
+\begin{eqnarray*}
+r = -p \pm \sqrt{-\omega_{d}^{2}} = -p \pm i\omega_{d}
+\end{eqnarray*}
 
+So the general solution is
+\begin{eqnarray*}
+y(t) &=& e^{-pt}(c_{1}\cos{}(\omega_{d}t) + c_{2}\sin{}(\omega_{d})) \\\\
+&=& Ae^{-pt}\cos{}(\omega_{d}t-\phi)
+\end{eqnarray*}
 
-
-
-
+## Similarity between electrical and spring-dash pot system
+```{figure} /_static/figures/similarity_ode.jpeg
+:scale: 20%
+:name: similar
+```
 
 
 
