@@ -114,7 +114,7 @@ y''+y'+y=t
 \end{eqnarray*}
 
 - nonhomogeneous/particular solution by guessing the form of source/input term.
-We have two undetermined coefficient Y.
+We have two undetermined coefficients.
 \begin{eqnarray*}
 y_{p}(t) &=& a+bt \rightarrow b+a+bt = t \rightarrow b=1, a=-1 \\\\
 &\Longrightarrow& y_{p}(t) = -1+t
@@ -138,6 +138,23 @@ y_{p}(t) &=& c_{1}\cos{}(t) + c_{2}\sin{}(t) \\\\
 \end{eqnarray*}
 
 ````
+
+````{prf:example}
+:label: my-example8
+\begin{eqnarray*}
+y''+y'+y=t\sin{}(t)
+\end{eqnarray*}
+
+- nonhomogeneous/particular solution by guessing the form of source/input term.
+We have four undetermined coefficients.
+\begin{eqnarray*}
+y_{p}(t) &=& (a+bt)\cos{}(t) + (c+dt)\sin{}(t)
+\end{eqnarray*}
+
+````
+
+
+
 
 
 
