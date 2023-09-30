@@ -12,6 +12,8 @@ kernelspec:
 (week6)=
 
 # Week6 - exponential response formula (ERF)
+
+## The ERF framework
 This method gives us guide to find the nonhomogeneous (particular) solutions for exponential-type forcing or source term.
 Consider the second order ODE:
 \begin{eqnarray*}
@@ -169,6 +171,62 @@ P(D)y_{p} &=& P(D)\frac{x^{2}e^{ax}}{P''(a)}=\frac{e^{ax}P(D+a)x^{2}}{2} \\\\
 \end{eqnarray*}
 
 ````
+
+## Resonance revisit
+Now we can revisit the resonance case with ERF. Consider below ODE and assume input frequency is not equal to the natural frequency.
+\begin{eqnarray*}
+y'' + \omega_{o}^{2}y &=& \cos{}(\omega_{1}t), \omega_{o} \neq \omega_{1} \\\\
+(D^{2}+\omega_{o}^{2})y &=& \cos{}(\omega_{1}t) \rightarrow P(D) = (D^{2} + \omega_{o}^{2})
+\end{eqnarray*}
+
+Complexify the ODE:
+\begin{eqnarray*}
+(D^{2} + \omega_{o}^{2})\tilde{y_{p}} &=& e^{i\omega_{1}t} \\\\
+\Longrightarrow \tilde{y_{p}} &=& \frac{e^{i\omega_{1}t}}{(i\omega_{1})^{2}+\omega_{o}^{2}} = \frac{e^{i\omega_{1}t}}{\omega_{o}^{2}-\omega_{1}^{2}} \\\\
+\Longrightarrow y_{p} &=& \Re (\tilde{y_{p}}) = \frac{\cos{}(\omega_{1}t)}{\omega_{o}^{2}-\omega_{1}^{2}}, \text{  not a very particular solution.} \\\\
+\text{We can see if } \omega_{1} \approx \omega_{o} \text{, big amplitude occurs.}
+\end{eqnarray*}
+
+Consider a very particular solution:
+\begin{eqnarray*}
+y_{vp} = \frac{\cos{}(\omega_{1}t)}{\omega_{o}^{2}-\omega_{1}^{2}} - \frac{\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}\\\\
+\lim_{\omega_{1}\to \omega_{o}}\frac{\cos{}(\omega_{1}t)-\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}
+\end{eqnarray*}
+When the two frequencies are very similar:
+\begin{eqnarray*}
+\lim_{\omega_{1}\to \omega_{o}}\frac{-\sin{}(\omega_{1}t)t}{-2\omega_{1}} = \frac{t\sin{}(\omega_{o}t)}{2\omega_{o}}
+\end{eqnarray*}
+
+```{note}
+The geometric meaning of the very particular solution is "beats":
+\begin{eqnarray*}
+\frac{\cos{}(\omega_{1}t)-\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}} 
+&=& \frac{2\sin{}(\frac{\omega_{o}-\omega_{1}}{2}t)\sin{}(\frac{\omega_{o}+\omega_{1}}{2}t)}{\omega_{o}^{2}-\omega_{1}^{2}} \\\\
+&\approx& \frac{2\sin{}(\frac{\omega_{o}-\omega_{1}}{2}t)\sin{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}
+\end{eqnarray*}
+````
+
+When resonance occurs, we can apply ERF directly:
+\begin{eqnarray*}
+\omega_{1} &=& \omega_{o}\\\\
+(D^{2} + \omega_{o}^{2})y_{p} &=& \cos{}(\omega_{o}t) \rightarrow P(D) = (D^{2} + \omega_{o}^{2}).
+\end{eqnarray*}
+
+Complexify the equation, we can get
+\begin{eqnarray*}
+(D^{2} + \omega_{o}^{2})\tilde{y_{p}} &=& e^{i\omega_{o}t}, \\\\
+P(i\omega_{o}) &=& (i\omega_{o})^{2} + \omega_{o}^{2} = 0 \\\\
+P'(i\omega_{o}) &=& 2i\omega_{o} \\\\
+\Longrightarrow \tilde{y_{p}} &=& \frac{te^{i\omega_{o}t}}{2i\omega_{o}} \\\\
+\Longrightarrow y_{p} &=& \Re (\tilde{y_{p}}) = \frac{t\sin{}(\omega_{o}t)}{2\omega_{o}}
+\end{eqnarray*}
+
+
+
+
+
+
+
 
 
 

@@ -289,7 +289,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -305,6 +307,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-erf-framework">The ERF framework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-revisit">Resonance revisit</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -316,6 +327,8 @@ document.write(`
                   
   <section id="week6-exponential-response-formula-erf">
 <span id="week6"></span><h1>Week6 - exponential response formula (ERF)<a class="headerlink" href="#week6-exponential-response-formula-erf" title="Permalink to this heading">#</a></h1>
+<section id="the-erf-framework">
+<h2>The ERF framework<a class="headerlink" href="#the-erf-framework" title="Permalink to this heading">#</a></h2>
 <p>This method gives us guide to find the nonhomogeneous (particular) solutions for exponential-type forcing or source term.
 Consider the second order ODE:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -474,6 +487,60 @@ P(D)y_{p} &amp;=&amp; P(D)\frac{x^{2}e^{ax}}{P''(a)}=\frac{e^{ax}P(D+a)x^{2}}{2}
 \end{eqnarray*}\]</div>
 </div>
 </section>
+<section id="resonance-revisit">
+<h2>Resonance revisit<a class="headerlink" href="#resonance-revisit" title="Permalink to this heading">#</a></h2>
+<p>Now we can revisit the resonance case with ERF. Consider below ODE and assume input frequency is not equal to the natural frequency.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y'' + \omega_{o}^{2}y &amp;=&amp; \cos{}(\omega_{1}t), \omega_{o} \neq \omega_{1} \\\\
+(D^{2}+\omega_{o}^{2})y &amp;=&amp; \cos{}(\omega_{1}t) \rightarrow P(D) = (D^{2} + \omega_{o}^{2})
+\end{eqnarray*}\]</div>
+<p>Complexify the ODE:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(D^{2} + \omega_{o}^{2})\tilde{y_{p}} &amp;=&amp; e^{i\omega_{1}t} \\\\
+\Longrightarrow \tilde{y_{p}} &amp;=&amp; \frac{e^{i\omega_{1}t}}{(i\omega_{1})^{2}+\omega_{o}^{2}} = \frac{e^{i\omega_{1}t}}{\omega_{o}^{2}-\omega_{1}^{2}} \\\\
+\Longrightarrow y_{p} &amp;=&amp; \Re (\tilde{y_{p}}) = \frac{\cos{}(\omega_{1}t)}{\omega_{o}^{2}-\omega_{1}^{2}}, \text{  not a very particular solution.} \\\\
+\text{We can see if } \omega_{1} \approx \omega_{o} \text{, big amplitude occurs.}
+\end{eqnarray*}\]</div>
+<p>Consider a very particular solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{vp} = \frac{\cos{}(\omega_{1}t)}{\omega_{o}^{2}-\omega_{1}^{2}} - \frac{\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}\\\\
+\lim_{\omega_{1}\to \omega_{o}}\frac{\cos{}(\omega_{1}t)-\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}
+\end{eqnarray*}\]</div>
+<p>When the two frequencies are very similar:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\lim_{\omega_{1}\to \omega_{o}}\frac{-\sin{}(\omega_{1}t)t}{-2\omega_{1}} = \frac{t\sin{}(\omega_{o}t)}{2\omega_{o}}
+\end{eqnarray*}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The geometric meaning of the very particular solution is “beats”:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{\cos{}(\omega_{1}t)-\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}} 
+&amp;=&amp; \frac{2\sin{}(\frac{\omega_{o}-\omega_{1}}{2}t)\sin{}(\frac{\omega_{o}+\omega_{1}}{2}t)}{\omega_{o}^{2}-\omega_{1}^{2}} \\\\
+&amp;\approx&amp; \frac{2\sin{}(\frac{\omega_{o}-\omega_{1}}{2}t)\sin{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}
+\end{eqnarray*}\]</div>
+</div>
+<p>When resonance occurs, we can apply ERF directly:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\omega_{1} &amp;=&amp; \omega_{o}\\\\
+(D^{2} + \omega_{o}^{2})y_{p} &amp;=&amp; \cos{}(\omega_{o}t) \rightarrow P(D) = (D^{2} + \omega_{o}^{2}).
+\end{eqnarray*}\]</div>
+<p>Complexify the equation, we can get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(D^{2} + \omega_{o}^{2})\tilde{y_{p}} &amp;=&amp; e^{i\omega_{o}t}, \\\\
+P(i\omega_{o}) &amp;=&amp; (i\omega_{o})^{2} + \omega_{o}^{2} = 0 \\\\
+P'(i\omega_{o}) &amp;=&amp; 2i\omega_{o} \\\\
+\Longrightarrow \tilde{y_{p}} &amp;=&amp; \frac{te^{i\omega_{o}t}}{2i\omega_{o}} \\\\
+\Longrightarrow y_{p} &amp;=&amp; \Re (\tilde{y_{p}}) = \frac{t\sin{}(\omega_{o}t)}{2\omega_{o}}
+\end{eqnarray*}\]</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -520,6 +587,21 @@ P(D)y_{p} &amp;=&amp; P(D)\frac{x^{2}e^{ax}}{P''(a)}=\frac{e^{ax}P(D+a)x^{2}}{2}
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-erf-framework">The ERF framework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-revisit">Resonance revisit</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
