@@ -324,7 +324,7 @@ A''+by'+cy &amp;=&amp; e^{\alpha x}, \alpha \in \mathbb{C} \\\\
 &amp;=&amp; e^{(a+i\omega)x}\\\\
 \Longrightarrow (D^{2}+AD+B)y &amp;=&amp; P(D)y = e^{\alpha x}
 \end{eqnarray*}\]</div>
-<p>Below exponential inputs can are all special cases</p>
+<p>Below exponential inputs are all special cases of exponential function</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
 e^{ax}, \sin{}(\omega x), \cos{}(\omega x), e^{ax}\sin{}(\omega x), e^{ax}\cos{}(\omega x)
@@ -403,6 +403,74 @@ P(D)e^{ax}u(x) &amp;=&amp; (D^{2}+AD+B)e^{ax}u(x) \\\\
 &amp;=&amp; e^{ax}(D^{2}u+2aDu+a^{2}u+A(Du+au)+Bu) \\\\
 &amp;=&amp; e^{ax}((D+a)^{2}u+A(D+a)u+Bu) \\\\
 &amp;=&amp; e^{ax}P(D+a)u(x)
+\end{eqnarray*}\]</div>
+</div>
+<div class="proof theorem admonition" id="my-theorem_erf3">
+<p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Resonance</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(D^{2}+AD+B)y = e^{ax},
+\end{eqnarray*}\]</div>
+<p>where a is complex.</p>
+<ol class="arabic simple">
+<li><p>If P(a) = 0,  a is a simple root of P(D), then the particular solution is</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_p{ = \frac{xe^{ax}}{P'(a)}}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>If a is a double root, then the particular solution is</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_p{ = \frac{x^{2}e^{ax}}{P''(a)}}
+\end{eqnarray*}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. 1. simple root case.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D) &amp;=&amp; (D-b)(D-a) = D^{2} - (a+b) + ab, a\neq b \\\\
+P'(D) &amp;=&amp; (D-a) + (D-b)) \\\\
+P'(a) &amp;=&amp; a-b \\\\
+P(D)\frac{xe^{ax}}{P'(a)} &amp;=&amp; e^{ax}\frac{P(D+a)x}{P'(a)} \\\\
+&amp;=&amp; \frac{e^{ax}(D+a-b)(D+a-a)x}{P'(a)} = \frac{e^{ax}(D+a-b)Dx}{P'(a)} \\\\
+&amp;=&amp; \frac{e^{ax}(a-b)}{a-b} = e^{ax}
+\end{eqnarray*}\]</div>
+</div>
+<div class="proof example admonition" id="my-example_erf3">
+<p class="admonition-title"><span class="caption-number">Example 11 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''-3y'+2y = e^{x}\\\\
+\Longrightarrow P(D) = D^{2}-3D+2
+\end{eqnarray*}\]</div>
+<p>So 1 is a simple root.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P'(D) = 2D-3\\\\
+P'(1) = -1
+\end{eqnarray*}\]</div>
+<p>The particular solution is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p} = \frac{xe^{x}}{-1} = -xe^{x}
+\end{eqnarray*}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. 2. double root case.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D) &amp;=&amp; (D-a)(D-a) \\\\
+P'(D) &amp;=&amp; (D-a) + (D-a) = 2(D-a) \\\\
+P'(a) &amp;=&amp; 2(a-a)=0 \\\\
+P''(D) &amp;=&amp; 2, P''(a) = 2\\\\
+P(D)y_{p} &amp;=&amp; P(D)\frac{x^{2}e^{ax}}{P''(a)}=\frac{e^{ax}P(D+a)x^{2}}{2} \\\\
+&amp;=&amp; \frac{e^{ax}Dx^{2}}{2} = e^{ax}\frac{2Dx}{2}=e^{ax}
 \end{eqnarray*}\]</div>
 </div>
 </section>

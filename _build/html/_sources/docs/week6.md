@@ -20,7 +20,7 @@ A''+by'+cy &=& e^{\alpha x}, \alpha \in \mathbb{C} \\\\
 \Longrightarrow (D^{2}+AD+B)y &=& P(D)y = e^{\alpha x}
 \end{eqnarray*}
 
-Below exponential inputs can are all special cases
+Below exponential inputs are all special cases of exponential function
 \begin{eqnarray*}
 e^{ax}, \sin{}(\omega x), \cos{}(\omega x), e^{ax}\sin{}(\omega x), e^{ax}\cos{}(\omega x)
 \end{eqnarray*}
@@ -102,13 +102,73 @@ P(D)e^{ax}u(x) &=& (D^{2}+AD+B)e^{ax}u(x) \\\\
 
 ````
 
+````{prf:theorem}
+:label: my-theorem_erf3
+Resonance
+\begin{eqnarray*}
+(D^{2}+AD+B)y = e^{ax},
+\end{eqnarray*}
+where a is complex. 
 
+1. If P(a) = 0,  a is a simple root of P(D), then the particular solution is
 
+\begin{eqnarray*}
+y_p{ = \frac{xe^{ax}}{P'(a)}}
+\end{eqnarray*}
 
+2. If a is a double root, then the particular solution is
 
+\begin{eqnarray*}
+y_p{ = \frac{x^{2}e^{ax}}{P''(a)}}
+\end{eqnarray*}
 
+````
 
+````{prf:proof}
+1. simple root case.
+\begin{eqnarray*}
+P(D) &=& (D-b)(D-a) = D^{2} - (a+b) + ab, a\neq b \\\\
+P'(D) &=& (D-a) + (D-b)) \\\\
+P'(a) &=& a-b \\\\
+P(D)\frac{xe^{ax}}{P'(a)} &=& e^{ax}\frac{P(D+a)x}{P'(a)} \\\\
+&=& \frac{e^{ax}(D+a-b)(D+a-a)x}{P'(a)} = \frac{e^{ax}(D+a-b)Dx}{P'(a)} \\\\
+&=& \frac{e^{ax}(a-b)}{a-b} = e^{ax}
+\end{eqnarray*}
 
+````
+
+````{prf:example}
+:label: my-example_erf3
+\begin{eqnarray*}
+y''-3y'+2y = e^{x}\\\\
+\Longrightarrow P(D) = D^{2}-3D+2
+\end{eqnarray*}
+So 1 is a simple root.
+
+\begin{eqnarray*}
+P'(D) = 2D-3\\\\
+P'(1) = -1
+\end{eqnarray*}
+
+The particular solution is
+\begin{eqnarray*}
+y_{p} = \frac{xe^{x}}{-1} = -xe^{x}
+\end{eqnarray*}
+
+````
+
+````{prf:proof}
+2. double root case.
+\begin{eqnarray*}
+P(D) &=& (D-a)(D-a) \\\\
+P'(D) &=& (D-a) + (D-a) = 2(D-a) \\\\
+P'(a) &=& 2(a-a)=0 \\\\
+P''(D) &=& 2, P''(a) = 2\\\\
+P(D)y_{p} &=& P(D)\frac{x^{2}e^{ax}}{P''(a)}=\frac{e^{ax}P(D+a)x^{2}}{2} \\\\
+&=& \frac{e^{ax}Dx^{2}}{2} = e^{ax}\frac{2Dx}{2}=e^{ax}
+\end{eqnarray*}
+
+````
 
 
 
