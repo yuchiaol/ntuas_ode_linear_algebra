@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week6 - exponential response formula (ERF) &#8212; NTUAS ODE and Linear Algebra</title>
+    <title>Week7 - variation of parameters &#8212; NTUAS ODE and Linear Algebra</title>
   
   
   
@@ -64,11 +64,10 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/week6';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/week7';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week7 - variation of parameters" href="week7.html" />
-    <link rel="prev" title="Week5 - method of undetermined coefficients" href="week5.html" />
+    <link rel="prev" title="Week6 - exponential response formula (ERF)" href="week6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,8 +165,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week3.html">Week3 - integrating factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week4.html">Week4 -  fundamental equation of mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week5.html">Week5 - method of undetermined coefficients</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week6 - exponential response formula (ERF)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week7.html">Week7 - variation of parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week6.html">Week6 - exponential response formula (ERF)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week7 - variation of parameters</a></li>
 </ul>
 
     </div>
@@ -222,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/docs/week6.md" target="_blank"
+      <li><a href="../_sources/docs/week7.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -304,7 +303,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week6 - exponential response formula (ERF)</h1>
+    <h1>Week7 - variation of parameters</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -314,8 +313,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-erf-framework">The ERF framework</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-revisit">Resonance revisit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-set-of-solutions-amd-wronskian">The fundamental set of solutions amd Wronskian</a></li>
 </ul>
             </nav>
         </div>
@@ -327,221 +325,64 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="week6-exponential-response-formula-erf">
-<span id="week6"></span><h1>Week6 - exponential response formula (ERF)<a class="headerlink" href="#week6-exponential-response-formula-erf" title="Permalink to this heading">#</a></h1>
-<section id="the-erf-framework">
-<h2>The ERF framework<a class="headerlink" href="#the-erf-framework" title="Permalink to this heading">#</a></h2>
-<p>This method gives us guide to find the nonhomogeneous (particular) solutions for exponential-type forcing or source term.
-Consider the second order ODE:</p>
+  <section id="week7-variation-of-parameters">
+<span id="week7"></span><h1>Week7 - variation of parameters<a class="headerlink" href="#week7-variation-of-parameters" title="Permalink to this heading">#</a></h1>
+<section id="the-fundamental-set-of-solutions-amd-wronskian">
+<h2>The fundamental set of solutions amd Wronskian<a class="headerlink" href="#the-fundamental-set-of-solutions-amd-wronskian" title="Permalink to this heading">#</a></h2>
+<p>Consider linear ODE:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-A''+by'+cy &amp;=&amp; e^{\alpha x}, \alpha \in \mathbb{C} \\\\
-&amp;=&amp; e^{(a+i\omega)x}\\\\
-\Longrightarrow (D^{2}+AD+B)y &amp;=&amp; P(D)y = e^{\alpha x}
+&amp;\text{   }&amp; y''+p(t)y'+q(t)y=0 \\\\
+y_{1}(t) \text{ and } &amp;y_{2}(t)&amp; \text{ form a fudamental set of solutions (fss) if:} \\\\
+&amp;1.&amp; y_{1}, y_{2} \text{ are solutions of the ODE.} \\\\
+&amp;2.&amp; \text{every solution } y(t) \text{ of the ODE can be written as:}\\\\
+&amp;\text{    }&amp; y(t) = c_{1}y_{1}(t) + c_{2}y_{2}(t)
 \end{eqnarray*}\]</div>
-<p>Below exponential inputs are all special cases of exponential function</p>
+<div class="proof theorem admonition" id="my-theorem_vp1">
+<p class="admonition-title"><span class="caption-number">Theorem 5 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Two solutions form a fss if the determinat</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-e^{ax}, \sin{}(\omega x), \cos{}(\omega x), e^{ax}\sin{}(\omega x), e^{ax}\cos{}(\omega x)
+W(t) = 
+\begin{vmatrix}
+     y_{1}(t) &amp; y_{2}(t) \\
+     y_{1}'(t) &amp; y_{2}'(t) 
+\end{vmatrix}
+\neq 0
 \end{eqnarray*}\]</div>
-<div class="proof example admonition" id="my-example_erf1">
-<p class="admonition-title"><span class="caption-number">Example 9 </span></p>
+<p>W(t) is called Wronskian.</p>
+</section>
+</div><div class="proof example admonition" id="my-example_vp1">
+<p class="admonition-title"><span class="caption-number">Example 12 </span></p>
 <section class="example-content" id="proof-content">
+<p>Consider the ODE:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-P(D)e^{\alpha x} = P(\alpha)e^{\alpha x}
+y''+y=0
 \end{eqnarray*}\]</div>
-</section>
-</div><div class="proof theorem admonition" id="my-theorem_erf1">
-<p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
-<section class="theorem-content" id="proof-content">
-<p>Exponential-input theorem</p>
+<p>Show that</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-y_{p} = \frac{e^{\alpha x}}{p(\alpha)} \text{ solves } P(D)y=e^{\alpha x}
+y_{1}(t)=\sin{}(t), y_{2}(t)=\cos{}(t)
 \end{eqnarray*}\]</div>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. if</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-P(D)y_{p} = e^{\alpha x},
-\end{eqnarray*}\]</div>
-<p>then</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-P(D)\frac{e^{\alpha x}}{P(\alpha)} = \frac{1}{P(\alpha)}P(D)e^{\alpha x} = \frac{1}{P(\alpha)}P(\alpha)e^{\alpha x} = e^{\alpha x}
-\end{eqnarray*}\]</div>
-</div>
-<div class="proof example admonition" id="my-example_erf2">
-<p class="admonition-title"><span class="caption-number">Example 10 </span></p>
-<section class="example-content" id="proof-content">
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-y''-y'+2y=10e^{-x}\sin{}(x)
-\end{eqnarray*}\]</div>
-<p>We first complixy the ODE, solve the particular solution, and find its imaginary part:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-\tilde{y_{p}}'' - \tilde{y_{p}}' + 2\tilde{y_{p}} &amp;=&amp; 10e^{(-1+i)x} \\\\
-P(D) = (D^{2} - D + 2) &amp;\rightarrow&amp; P(\alpha) = \alpha^{2}-\alpha+2
-\end{eqnarray*}\]</div>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-(D^{2} - D + 2)\tilde{y_{p}} &amp;=&amp; 10e^{(-1+i)x} \\\\
-\Longrightarrow \tilde{y_{p}} = \frac{10e^{(-1+i)x}}{(-1+i)^{2}-(-1+i)+2} &amp;=&amp; \frac{10e^{(-1+i)x}}{3-3i} = \frac{5}{3}(1+i)e^{(-1+i)x}.
-\end{eqnarray*}\]</div>
-<p>So the particular solution is:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-y_{p} = \mathfrak{Im}(\tilde{y_{p}}) = \frac{5}{3}e^{-x}(\sin{}(x)+\cos{}(x)) = \frac{5}{3}e^{-x}\sqrt{2}(\cos{}(x-\frac{\pi}{4}))
-\end{eqnarray*}\]</div>
-</section>
-</div><div class="proof theorem admonition" id="my-theorem_erf2">
-<p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
-<section class="theorem-content" id="proof-content">
-<p>Exponential-shift theorem</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-P(D)e^{ax}u(x) = e^{ax}P(D+a)u(x)
-\end{eqnarray*}\]</div>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. Consider</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-P(D)e^{ax}u(x) &amp;=&amp; (D^{2}+AD+B)e^{ax}u(x) \\\\
-&amp;=&amp; D^{2}(e^{ax}u)+AD(e^{ax}u)+B(e^{ax}u) \\\\
-&amp;=&amp; D(D(e^{ax}u))+AD(e^{ax}u)+B(e^{ax}u) \\\\
-&amp;=&amp; D(ae^{ax}u+e^{ax}Du) + A(ae^{ax}u+e^{ax}Du) + B(e^{ax}u) \\\\
-&amp;=&amp; e^{ax}(a^{2}u+aDu+aDu+D^{2}u+aAu+ADu+Bu) \\\\
-&amp;=&amp; e^{ax}(D^{2}u+2aDu+a^{2}u+A(Du+au)+Bu) \\\\
-&amp;=&amp; e^{ax}((D+a)^{2}u+A(D+a)u+Bu) \\\\
-&amp;=&amp; e^{ax}P(D+a)u(x)
-\end{eqnarray*}\]</div>
-</div>
-<div class="proof theorem admonition" id="my-theorem_erf3">
-<p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
-<section class="theorem-content" id="proof-content">
-<p>Resonance</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-(D^{2}+AD+B)y = e^{ax},
-\end{eqnarray*}\]</div>
-<p>where a is complex.</p>
+<p>form a fss of this ODE.</p>
 <ol class="arabic simple">
-<li><p>If P(a) = 0,  a is a simple root of P(D), then the particular solution is</p></li>
+<li><p>they are solutions to the ODE</p></li>
+<li></li>
 </ol>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-y_p{ = \frac{xe^{ax}}{P'(a)}}
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="2">
-<li><p>If a is a double root, then the particular solution is</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-y_p{ = \frac{x^{2}e^{ax}}{P''(a)}}
-\end{eqnarray*}\]</div>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. 1. simple root case.</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-P(D) &amp;=&amp; (D-b)(D-a) = D^{2} - (a+b) + ab, a\neq b \\\\
-P'(D) &amp;=&amp; (D-a) + (D-b)) \\\\
-P'(a) &amp;=&amp; a-b \\\\
-P(D)\frac{xe^{ax}}{P'(a)} &amp;=&amp; e^{ax}\frac{P(D+a)x}{P'(a)} \\\\
-&amp;=&amp; \frac{e^{ax}(D+a-b)(D+a-a)x}{P'(a)} = \frac{e^{ax}(D+a-b)Dx}{P'(a)} \\\\
-&amp;=&amp; \frac{e^{ax}(a-b)}{a-b} = e^{ax}
-\end{eqnarray*}\]</div>
-</div>
-<div class="proof example admonition" id="my-example_erf3">
-<p class="admonition-title"><span class="caption-number">Example 11 </span></p>
-<section class="example-content" id="proof-content">
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-y''-3y'+2y = e^{x}\\\\
-\Longrightarrow P(D) = D^{2}-3D+2
-\end{eqnarray*}\]</div>
-<p>So 1 is a simple root.</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-P'(D) = 2D-3\\\\
-P'(1) = -1
-\end{eqnarray*}\]</div>
-<p>The particular solution is</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-y_{p} = \frac{xe^{x}}{-1} = -xe^{x}
+W(t) =
+\begin{vmatrix}
+     \sin{}(t) &amp; \cos{}(t) \\
+     \cos{}(t) &amp; -\sin{}(t)
+\end{vmatrix}
+= -\sin{}^{2}(t) - \cos{}^{2}(t) = -1
+\neq 0
 \end{eqnarray*}\]</div>
 </section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. 2. double root case.</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-P(D) &amp;=&amp; (D-a)(D-a) \\\\
-P'(D) &amp;=&amp; (D-a) + (D-a) = 2(D-a) \\\\
-P'(a) &amp;=&amp; 2(a-a)=0 \\\\
-P''(D) &amp;=&amp; 2, P''(a) = 2\\\\
-P(D)y_{p} &amp;=&amp; P(D)\frac{x^{2}e^{ax}}{P''(a)}=\frac{e^{ax}P(D+a)x^{2}}{2} \\\\
-&amp;=&amp; \frac{e^{ax}Dx^{2}}{2} = e^{ax}\frac{2Dx}{2}=e^{ax}
-\end{eqnarray*}\]</div>
-</div>
-</section>
-<section id="resonance-revisit">
-<h2>Resonance revisit<a class="headerlink" href="#resonance-revisit" title="Permalink to this heading">#</a></h2>
-<p>Now we can revisit the resonance case with ERF. Consider below ODE and assume input frequency is not equal to the natural frequency.</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-y'' + \omega_{o}^{2}y &amp;=&amp; \cos{}(\omega_{1}t), \omega_{o} \neq \omega_{1} \\\\
-(D^{2}+\omega_{o}^{2})y &amp;=&amp; \cos{}(\omega_{1}t) \rightarrow P(D) = (D^{2} + \omega_{o}^{2})
-\end{eqnarray*}\]</div>
-<p>Complexify the ODE:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-(D^{2} + \omega_{o}^{2})\tilde{y_{p}} &amp;=&amp; e^{i\omega_{1}t} \\\\
-\Longrightarrow \tilde{y_{p}} &amp;=&amp; \frac{e^{i\omega_{1}t}}{(i\omega_{1})^{2}+\omega_{o}^{2}} = \frac{e^{i\omega_{1}t}}{\omega_{o}^{2}-\omega_{1}^{2}} \\\\
-\Longrightarrow y_{p} &amp;=&amp; \Re (\tilde{y_{p}}) = \frac{\cos{}(\omega_{1}t)}{\omega_{o}^{2}-\omega_{1}^{2}}, \text{  not a very particular solution.} \\\\
-\text{We can see if } \omega_{1} \approx \omega_{o} \text{, big amplitude occurs.}
-\end{eqnarray*}\]</div>
-<p>Consider a very particular solution:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-y_{vp} = \frac{\cos{}(\omega_{1}t)}{\omega_{o}^{2}-\omega_{1}^{2}} - \frac{\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}\\\\
-\lim_{\omega_{1}\to \omega_{o}}\frac{\cos{}(\omega_{1}t)-\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}
-\end{eqnarray*}\]</div>
-<p>When the two frequencies are very similar:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-\lim_{\omega_{1}\to \omega_{o}}\frac{-\sin{}(\omega_{1}t)t}{-2\omega_{1}} = \frac{t\sin{}(\omega_{o}t)}{2\omega_{o}}
-\end{eqnarray*}\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The geometric meaning of the very particular solution is “beats”:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-\frac{\cos{}(\omega_{1}t)-\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}} 
-&amp;=&amp; \frac{2\sin{}(\frac{\omega_{o}-\omega_{1}}{2}t)\sin{}(\frac{\omega_{o}+\omega_{1}}{2}t)}{\omega_{o}^{2}-\omega_{1}^{2}} \\\\
-&amp;\approx&amp; \frac{2\sin{}(\frac{\omega_{o}-\omega_{1}}{2}t)\sin{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}
-\end{eqnarray*}\]</div>
-</div>
-<p>When resonance occurs, we can apply ERF directly:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-\omega_{1} &amp;=&amp; \omega_{o}\\\\
-(D^{2} + \omega_{o}^{2})y_{p} &amp;=&amp; \cos{}(\omega_{o}t) \rightarrow P(D) = (D^{2} + \omega_{o}^{2}).
-\end{eqnarray*}\]</div>
-<p>Complexify the equation, we can get</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-(D^{2} + \omega_{o}^{2})\tilde{y_{p}} &amp;=&amp; e^{i\omega_{o}t}, \\\\
-P(i\omega_{o}) &amp;=&amp; (i\omega_{o})^{2} + \omega_{o}^{2} = 0 \\\\
-P'(i\omega_{o}) &amp;=&amp; 2i\omega_{o} \\\\
-\Longrightarrow \tilde{y_{p}} &amp;=&amp; \frac{te^{i\omega_{o}t}}{2i\omega_{o}} \\\\
-\Longrightarrow y_{p} &amp;=&amp; \Re (\tilde{y_{p}}) = \frac{t\sin{}(\omega_{o}t)}{2\omega_{o}}
-\end{eqnarray*}\]</div>
-</section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -575,22 +416,13 @@ P'(i\omega_{o}) &amp;=&amp; 2i\omega_{o} \\\\
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="week5.html"
+       href="week6.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week5 - method of undetermined coefficients</p>
+        <p class="prev-next-title">Week6 - exponential response formula (ERF)</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="week7.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week7 - variation of parameters</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -607,8 +439,7 @@ P'(i\omega_{o}) &amp;=&amp; 2i\omega_{o} \\\\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-erf-framework">The ERF framework</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-revisit">Resonance revisit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-set-of-solutions-amd-wronskian">The fundamental set of solutions amd Wronskian</a></li>
 </ul>
   </nav></div>
 
