@@ -314,6 +314,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-set-of-solutions-amd-wronskian">The fundamental set of solutions amd Wronskian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-parameters">Variation of parameters</a></li>
 </ul>
             </nav>
         </div>
@@ -368,7 +369,7 @@ y_{1}(t)=\sin{}(t), y_{2}(t)=\cos{}(t)
 \end{eqnarray*}\]</div>
 <p>form a fss of this ODE.</p>
 <ol class="arabic simple">
-<li><p>they are solutions to the ODE</p></li>
+<li><p>they are solutions to the ODE.</p></li>
 <li></li>
 </ol>
 <div class="amsmath math notranslate nohighlight">
@@ -383,6 +384,59 @@ W(t) =
 \end{eqnarray*}\]</div>
 </section>
 </div></section>
+<section id="variation-of-parameters">
+<h2>Variation of parameters<a class="headerlink" href="#variation-of-parameters" title="Permalink to this heading">#</a></h2>
+<p>Consider the ODE:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+1y''+B(t)y'+C(t)y=f(t).
+\end{eqnarray*}\]</div>
+<p>Suppose we have two homogeneous solutions:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{1}(t), y_{2}(t)
+\end{eqnarray*}\]</div>
+<p>The idea is to construct the particular solution as the form of</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t)=c_{1}(t)y_{1}(t) + c_{2}(t)y_{2}(t), \\\\
+c_{1}(t), c_{2}(t) \text{ are called the varying parameters.}
+\end{eqnarray*}\]</div>
+<p>if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+c_{1}'(t)y_{1}(t) &amp;+&amp; c_{2}'(t)y_{2}(t) = 0 \\\\
+c_{1}'(t)y_{1}'(t) &amp;+&amp; c_{2}'(t)y_{2}'(t) = f(t) \\\\
+\Longrightarrow 
+W(t) &amp;=&amp;
+\begin{vmatrix}
+     y_{1}(t) &amp; y_{2}(t) \\
+     y_{1}'(t) &amp; y_{2}'(t)
+\end{vmatrix}
+\neq 0 \\\\
+&amp;\Longrightarrow&amp; y_{1}(t), y_{2}(t) \text{ form a fss}
+\end{eqnarray*}\]</div>
+<p>then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t) &amp;=&amp; y_{1}\int{\frac{W_{1}}{W}dt} +  y_{2}\int{\frac{W_{2}}{W}dt} \\\\
+W_{1} &amp;=&amp; 
+\begin{vmatrix}
+     0 &amp; y_{2}(t) \\
+     f(t) &amp; y_{2}'(t)
+\end{vmatrix} \\\\
+W_{2} &amp;=&amp;
+\begin{vmatrix}
+     y_{1}(t) &amp; 0 \\
+     y_{1}'(t) &amp; f(t)
+\end{vmatrix} \\\\
+\end{eqnarray*}\]</div>
+<p>So the particular solution is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t) = y_{1}\int{\frac{-y_{2}(t)f(t)}{W}dt} +  y_{2}\int{\frac{y_{1}(t)f(t)}{W}dt}
+\end{eqnarray*}\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -440,6 +494,7 @@ W(t) =
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-set-of-solutions-amd-wronskian">The fundamental set of solutions amd Wronskian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-parameters">Variation of parameters</a></li>
 </ul>
   </nav></div>
 
