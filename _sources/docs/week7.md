@@ -50,7 +50,7 @@ Show that
 y_{1}(t)=\sin{}(t), y_{2}(t)=\cos{}(t)
 \end{eqnarray*}
 form a fss of this ODE.
-1. they are solutions to the ODE
+1. they are solutions to the ODE.
 2. 
 \begin{eqnarray*}
 W(t) =
@@ -64,8 +64,56 @@ W(t) =
 
 ````
 
+## Variation of parameters
+Consider the ODE:
+\begin{eqnarray*}
+1y''+B(t)y'+C(t)y=f(t).
+\end{eqnarray*}
 
+Suppose we have two homogeneous solutions:
+\begin{eqnarray*}
+y_{1}(t), y_{2}(t)
+\end{eqnarray*}
 
+The idea is to construct the particular solution as the form of
+\begin{eqnarray*}
+y_{p}(t)=c_{1}(t)y_{1}(t) + c_{2}(t)y_{2}(t), \\\\
+c_{1}(t), c_{2}(t) \text{ are called the varying parameters.}
+\end{eqnarray*}
+
+if
+\begin{eqnarray*}
+c_{1}'(t)y_{1}(t) &+& c_{2}'(t)y_{2}(t) = 0 \\\\
+c_{1}'(t)y_{1}'(t) &+& c_{2}'(t)y_{2}'(t) = f(t) \\\\
+\Longrightarrow 
+W(t) &=&
+\begin{vmatrix}
+     y_{1}(t) & y_{2}(t) \\
+     y_{1}'(t) & y_{2}'(t)
+\end{vmatrix}
+\neq 0 \\\\
+&\Longrightarrow& y_{1}(t), y_{2}(t) \text{ form a fss}
+\end{eqnarray*}
+
+then
+\begin{eqnarray*}
+y_{p}(t) &=& y_{1}\int{\frac{W_{1}}{W}dt} +  y_{2}\int{\frac{W_{2}}{W}dt} \\\\
+W_{1} &=& 
+\begin{vmatrix}
+     0 & y_{2}(t) \\
+     f(t) & y_{2}'(t)
+\end{vmatrix} \\\\
+W_{2} &=&
+\begin{vmatrix}
+     y_{1}(t) & 0 \\
+     y_{1}'(t) & f(t)
+\end{vmatrix} \\\\
+\end{eqnarray*}
+
+So the particular solution is:
+\begin{eqnarray*}
+y_{p}(t) = y_{1}\int{\frac{-y_{2}(t)f(t)}{W}dt} +  y_{2}\int{\frac{y_{1}(t)f(t)}{W}dt}
+\end{eqnarray*}
 
 
 
