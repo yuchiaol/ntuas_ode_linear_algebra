@@ -434,9 +434,101 @@ W_{2} &amp;=&amp;
 <p>So the particular solution is:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-y_{p}(t) = y_{1}\int{\frac{-y_{2}(t)f(t)}{W}dt} +  y_{2}\int{\frac{y_{1}(t)f(t)}{W}dt}
+y_{p}(t) = y_{1}(t)\int{\frac{-y_{2}(t)f(t)}{W}dt} +  y_{2}(t)\int{\frac{y_{1}(t)f(t)}{W}dt}
+\end{eqnarray*}\]</div>
+<div class="proof example admonition" id="my-example_vp2">
+<p class="admonition-title"><span class="caption-number">Example 13 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{1}(t) = e^{s_{1}t}, y_{2}(t) = e^{s_{2}t}
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+W(t) = 
+\begin{vmatrix}
+     y_{1} &amp; y_{2} \\
+     y_{1}' &amp; y_{2}'
+\end{vmatrix}
+= 
+\begin{vmatrix}
+     e^{s_{1}t} &amp; e^{s_{2}t} \\
+     s_{1}e^{s_{1}t} &amp; s_{2}e^{s_{2}t}
+\end{vmatrix}
+=
+(s_{2}-s_{1})(e^{s_{1}t}e^{s_{2}t})
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t) &amp;=&amp; e^{s_{1}t}\int{\frac{-e^{s_{2}T}f(T)}{(s_{2}-s_{1})e^{s_{1}T}e^{s_{2}T}}dT} + e^{s_{2}t}\int{\frac{e^{s_{1}T}f(T)}{(s_{2}-s_{1})e^{s_{1}T}e^{s_{2}T}}dT}\\\\
+&amp;=&amp; \frac{-1}{s_{2}-s_{1}}\int{e^{s_{1}(t-T)f(T)dT}} + \frac{1}{s_{2}-s_{1}}\int{e^{s_{2}(t-T)f(T)dT}}\\\\
+&amp;=&amp; \int{g(t-T)f(T)dT}\\\\
+g(t) &amp;=&amp; \frac{e^{s_{1}t}-e^{s_{2}t}}{s_{1}-s_{2}}, \text{ growth factor}
 \end{eqnarray*}\]</div>
 </section>
+</div><div class="proof example admonition" id="my-example_vp3">
+<p class="admonition-title"><span class="caption-number">Example 14 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''=2y'+y=e^{x}\ln{x}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r^2-2r+1 = 0 &amp;\rightarrow&amp; (r-1)^{2} = 0 \rightarrow y_{h}(x) = c_{1}e^{x} + c_{2}xe^{x} \\\\
+\text{ take } y_{1}(x) &amp;=&amp; e^{x}, y_{2}(x) = xe^{x}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>check</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{1}(x) \text{ and } y_{2}(x) \text{ form a fss}
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+W(x) &amp;=&amp; 
+\begin{vmatrix}
+     e^{x} &amp; xe^{x} \\
+     e^{x} &amp; e^{x}+xe^{x}
+\end{vmatrix}
+= e^{2x}+xe^{2x}-xe^{2x} = e^{2x} \neq 0 \\\\
+W_{1}(x) &amp;=&amp; 
+\begin{vmatrix}
+     0 &amp; xe^{x} \\
+     e^{x}\ln{x} &amp; e^{x}+xe^{x}
+\end{vmatrix}
+= -xe^{2x}\ln{x} \\\\
+W_{2}(x) &amp;=&amp; 
+\begin{vmatrix}
+     e^{x} &amp; 0 \\
+     e^{x} &amp; e^{x}\ln{x}
+\end{vmatrix}
+= e^{2x}\ln{x}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>calculate the particular solution</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p} &amp;=&amp; y_{1}\int{\frac{W_{1}}{W}dx} + y_{2}\int{\frac{W_{2}}{W}dx} \\\\
+&amp;=&amp; e^{x}\int{\frac{-xe^{2x}\ln{x}}{e^{2x}}dx} + xe^{x}\int{\frac{e^{2x}\ln{x}}{e^{2x}}dx} \\\\
+&amp;=&amp; -e^{x}\int{x\ln{x}dx} + xe^{x}\int{\ln{x}dx}\\\\
+&amp;=&amp; -e^{x}(\frac{1}{2}x^{2}\ln{x}-\frac{1}{2}\int{xdx}) + xe^{x}(x\ln{x}-\int{xd\ln{x}})\\\\
+&amp;=&amp; -e^{x}(\frac{1}{2}x^{2}\ln{x}-\frac{1}{4}x^{2}) + xe^{2}(x\ln{x}-x)
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="4">
+<li><p>caclulate the general solution</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(x) = y_{h}(x) + y_{p}(x)
+\end{eqnarray*}\]</div>
+</section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
