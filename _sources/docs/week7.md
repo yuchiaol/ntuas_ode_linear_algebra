@@ -112,8 +112,94 @@ W_{2} &=&
 
 So the particular solution is:
 \begin{eqnarray*}
-y_{p}(t) = y_{1}\int{\frac{-y_{2}(t)f(t)}{W}dt} +  y_{2}\int{\frac{y_{1}(t)f(t)}{W}dt}
+y_{p}(t) = y_{1}(t)\int{\frac{-y_{2}(t)f(t)}{W}dt} +  y_{2}(t)\int{\frac{y_{1}(t)f(t)}{W}dt}
 \end{eqnarray*}
+
+````{prf:example}
+:label: my-example_vp2
+\begin{eqnarray*}
+y_{1}(t) = e^{s_{1}t}, y_{2}(t) = e^{s_{2}t}
+\end{eqnarray*}
+\begin{eqnarray*}
+W(t) = 
+\begin{vmatrix}
+     y_{1} & y_{2} \\
+     y_{1}' & y_{2}'
+\end{vmatrix}
+= 
+\begin{vmatrix}
+     e^{s_{1}t} & e^{s_{2}t} \\
+     s_{1}e^{s_{1}t} & s_{2}e^{s_{2}t}
+\end{vmatrix}
+=
+(s_{2}-s_{1})(e^{s_{1}t}e^{s_{2}t})
+\end{eqnarray*}
+
+\begin{eqnarray*}
+y_{p}(t) &=& e^{s_{1}t}\int{\frac{-e^{s_{2}T}f(T)}{(s_{2}-s_{1})e^{s_{1}T}e^{s_{2}T}}dT} + e^{s_{2}t}\int{\frac{e^{s_{1}T}f(T)}{(s_{2}-s_{1})e^{s_{1}T}e^{s_{2}T}}dT}\\\\
+&=& \frac{-1}{s_{2}-s_{1}}\int{e^{s_{1}(t-T)f(T)dT}} + \frac{1}{s_{2}-s_{1}}\int{e^{s_{2}(t-T)f(T)dT}}\\\\
+&=& \int{g(t-T)f(T)dT}\\\\
+g(t) &=& \frac{e^{s_{1}t}-e^{s_{2}t}}{s_{1}-s_{2}}, \text{ growth factor}
+\end{eqnarray*}
+
+
+````
+
+
+````{prf:example}
+:label: my-example_vp3
+\begin{eqnarray*}
+y''=2y'+y=e^{x}\ln{x}
+\end{eqnarray*}
+
+1. 
+\begin{eqnarray*}
+r^2-2r+1 = 0 &\rightarrow& (r-1)^{2} = 0 \rightarrow y_{h}(x) = c_{1}e^{x} + c_{2}xe^{x} \\\\
+\text{ take } y_{1}(x) &=& e^{x}, y_{2}(x) = xe^{x}
+\end{eqnarray*}
+
+2. check
+\begin{eqnarray*}
+y_{1}(x) \text{ and } y_{2}(x) \text{ form a fss}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+W(x) &=& 
+\begin{vmatrix}
+     e^{x} & xe^{x} \\
+     e^{x} & e^{x}+xe^{x}
+\end{vmatrix}
+= e^{2x}+xe^{2x}-xe^{2x} = e^{2x} \neq 0 \\\\
+W_{1}(x) &=& 
+\begin{vmatrix}
+     0 & xe^{x} \\
+     e^{x}\ln{x} & e^{x}+xe^{x}
+\end{vmatrix}
+= -xe^{2x}\ln{x} \\\\
+W_{2}(x) &=& 
+\begin{vmatrix}
+     e^{x} & 0 \\
+     e^{x} & e^{x}\ln{x}
+\end{vmatrix}
+= e^{2x}\ln{x}
+\end{eqnarray*}
+
+3. calculate the particular solution
+\begin{eqnarray*}
+y_{p} &=& y_{1}\int{\frac{W_{1}}{W}dx} + y_{2}\int{\frac{W_{2}}{W}dx} \\\\
+&=& e^{x}\int{\frac{-xe^{2x}\ln{x}}{e^{2x}}dx} + xe^{x}\int{\frac{e^{2x}\ln{x}}{e^{2x}}dx} \\\\
+&=& -e^{x}\int{x\ln{x}dx} + xe^{x}\int{\ln{x}dx}\\\\
+&=& -e^{x}(\frac{1}{2}x^{2}\ln{x}-\frac{1}{2}\int{xdx}) + xe^{x}(x\ln{x}-\int{xd\ln{x}})\\\\
+&=& -e^{x}(\frac{1}{2}x^{2}\ln{x}-\frac{1}{4}x^{2}) + xe^{2}(x\ln{x}-x)
+\end{eqnarray*}
+
+4. caclulate the general solution
+\begin{eqnarray*}
+y(x) = y_{h}(x) + y_{p}(x)
+\end{eqnarray*}
+
+````
+
 
 
 
