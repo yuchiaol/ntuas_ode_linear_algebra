@@ -181,6 +181,41 @@ Y&=&y_{1}-y_{2}, Y(0)=0\\\\
 
 This is a contradiction! So the two solutions have to be the same for all t.
 
+## Homogeneous ODE and solution
+Consider
+\begin{eqnarray*}
+\frac{dy}{dt} = ay, y(0)=y_{0}
+\end{eqnarray*}
+
+Assume solution is in exponential form
+\begin{eqnarray*}
+y(t) = Ae^{\alpha t}.
+\end{eqnarray*}
+
+Plug it into the ODE
+\begin{eqnarray*}
+A\alpha e^{\alpha t} = aAe^{\alpha t} \rightarrow \alpha = a \rightarrow y(t)=Ae^{at}
+\end{eqnarray*}
+
+Use initial condition, we can get
+\begin{eqnarray*}
+y(0)=y_{0}=Ae^{a\cdot 0}=A \rightarrow y(t) = y_{0}e^{at}
+\end{eqnarray*}
+
+## Solution structure
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

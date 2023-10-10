@@ -336,6 +336,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness">Existence and uniqueness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneous-ode-and-solution">Homogeneous ODE and solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-structure">Solution structure</a></li>
 </ul>
             </nav>
         </div>
@@ -579,6 +581,32 @@ Y&amp;=&amp;y_{1}-y_{2}, Y(0)=0\\\\
 \end{eqnarray*}\]</div>
 <p>This is a contradiction! So the two solutions have to be the same for all t.</p>
 </section>
+<section id="homogeneous-ode-and-solution">
+<h2>Homogeneous ODE and solution<a class="headerlink" href="#homogeneous-ode-and-solution" title="Permalink to this heading">#</a></h2>
+<p>Consider</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{dy}{dt} = ay, y(0)=y_{0}
+\end{eqnarray*}\]</div>
+<p>Assume solution is in exponential form</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = Ae^{\alpha t}.
+\end{eqnarray*}\]</div>
+<p>Plug it into the ODE</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+A\alpha e^{\alpha t} = aAe^{\alpha t} \rightarrow \alpha = a \rightarrow y(t)=Ae^{at}
+\end{eqnarray*}\]</div>
+<p>Use initial condition, we can get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(0)=y_{0}=Ae^{a\cdot 0}=A \rightarrow y(t) = y_{0}e^{at}
+\end{eqnarray*}\]</div>
+</section>
+<section id="solution-structure">
+<h2>Solution structure<a class="headerlink" href="#solution-structure" title="Permalink to this heading">#</a></h2>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -666,6 +694,8 @@ Y&amp;=&amp;y_{1}-y_{2}, Y(0)=0\\\\
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-and-uniqueness">Existence and uniqueness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneous-ode-and-solution">Homogeneous ODE and solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-structure">Solution structure</a></li>
 </ul>
   </nav></div>
 
