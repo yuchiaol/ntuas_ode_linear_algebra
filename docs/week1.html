@@ -167,6 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week4.html">Week4 -  fundamental equation of mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week5.html">Week5 - method of undetermined coefficients</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week6.html">Week6 - exponential response formula (ERF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7.html">Week7 - variation of parameters</a></li>
 </ul>
 
     </div>
@@ -546,7 +547,37 @@ y'+y^{2}=q(t)
 </section>
 <section id="existence-and-uniqueness">
 <h2>Existence and uniqueness<a class="headerlink" href="#existence-and-uniqueness" title="Permalink to this heading">#</a></h2>
-<p>We xxx.</p>
+<p>For the linear first-order ODE, we are not touching the existence, as it is hard to prove consdering the scale of this class. On the other hand, the uniqueness is rather straightforward. Consider</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{dy}{dt} + ay = q(t), y(0)=y_{0}
+\end{eqnarray*}\]</div>
+<p>Assume two solutions are different</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{1}(t) \neq y_{2}(t), \forall t
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{y_{1}}{dt}&amp;+&amp;ay_{1}=q(t)\\\\
+\frac{y_{2}}{dt}&amp;+&amp;ay_{2}=q(t)\\\\
+\end{eqnarray*}\]</div>
+<p>Subtract the two equation, we can get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{d(y_{1}-y_{2})}{dt} + a(y_{1}-y_{2}) = 0
+\end{eqnarray*}\]</div>
+<p>Let</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+Y&amp;=&amp;y_{1}-y_{2}, Y(0)=0\\\\
+&amp;\Longrightarrow&amp; \frac{dY}{dt}=-aY\\\\
+&amp;\Longrightarrow&amp; Y=e^{-at}, \forall t\\\\
+&amp;\Longrightarrow&amp; Y(0) = 0 = A \\\\
+&amp;\Longrightarrow&amp; Y(t) = 0, \forall t \\\\
+&amp;\Longrightarrow&amp; y_{1}(t) = y_{2}(t), \forall t.
+\end{eqnarray*}\]</div>
+<p>This is a contradiction! So the two solutions have to be the same for all t.</p>
 </section>
 </section>
 

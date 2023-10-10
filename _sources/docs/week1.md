@@ -147,12 +147,39 @@ y'+y^{2}=q(t)
 \end{eqnarray*}
 
 ## Existence and uniqueness
-We xxx.
+For the linear first-order ODE, we are not touching the existence, as it is hard to prove consdering the scale of this class. On the other hand, the uniqueness is rather straightforward. Consider
 
+\begin{eqnarray*}
+\frac{dy}{dt} + ay = q(t), y(0)=y_{0}
+\end{eqnarray*}
 
+Assume two solutions are different
+\begin{eqnarray*}
+y_{1}(t) \neq y_{2}(t), \forall t
+\end{eqnarray*}
 
+\begin{eqnarray*}
+\frac{y_{1}}{dt}&+&ay_{1}=q(t)\\\\
+\frac{y_{2}}{dt}&+&ay_{2}=q(t)\\\\
+\end{eqnarray*}
 
+Subtract the two equation, we can get
 
+\begin{eqnarray*}
+\frac{d(y_{1}-y_{2})}{dt} + a(y_{1}-y_{2}) = 0
+\end{eqnarray*}
+
+Let 
+\begin{eqnarray*}
+Y&=&y_{1}-y_{2}, Y(0)=0\\\\
+&\Longrightarrow& \frac{dY}{dt}=-aY\\\\
+&\Longrightarrow& Y=e^{-at}, \forall t\\\\
+&\Longrightarrow& Y(0) = 0 = A \\\\
+&\Longrightarrow& Y(t) = 0, \forall t \\\\
+&\Longrightarrow& y_{1}(t) = y_{2}(t), \forall t.
+\end{eqnarray*}
+
+This is a contradiction! So the two solutions have to be the same for all t.
 
 
 
