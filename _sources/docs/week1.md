@@ -203,11 +203,28 @@ y(0)=y_{0}=Ae^{a\cdot 0}=A \rightarrow y(t) = y_{0}e^{at}
 \end{eqnarray*}
 
 ## Solution structure
+Consider the ODE with initial condition
+\begin{eqnarray*}
+\frac{dy}{dt}=ay+q(t), \text{  given } y(0),
+\end{eqnarray*}
+where q(t) is the source term.
 
+We can separate solution into two parts:
 
+- homogeneous solution or null solution with no source term, which comes from y(0):
+\begin{eqnarray*}
+\frac{y_{h}}{dt} = ay_{h}.
+\end{eqnarray*}
 
+- particular solution, which comes from q(t):
+\begin{eqnarray*}
+\frac{y_{p}}{dt} = ay_{p} + q(t)
+\end{eqnarray*}
 
-
+- general solution or complete solution
+\begin{eqnarray*}
+y(t) = y_{h}(t) + y_{p}(t)
+\end{eqnarray*}
 
 
 
