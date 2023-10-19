@@ -315,6 +315,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometry-of-linear-equations">The geometry of linear equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ax-is-a-linear-combination-of-columns-of-a">Ax is a linear combination of columns of A</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elimination-with-matrices">Elimination with matrices</a></li>
 </ul>
             </nav>
         </div>
@@ -339,19 +341,19 @@ document.write(`
 <p>We can write them in matrix form:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 2 &amp; -1 \\
 -1 &amp; 2
-\end{bmatrix}
-\begin{bmatrix}
+\end{bmatrix}}_{A}
+\underbrace{\begin{bmatrix}
 x \\
 y
-\end{bmatrix}
+\end{bmatrix}}_{\vec{x}}
 =
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 0 \\
 3
-\end{bmatrix}
+\end{bmatrix}}_{\vec{b}}
 \end{eqnarray*}\]</div>
 <ul class="simple">
 <li><p>row picture</p></li>
@@ -360,21 +362,21 @@ y
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
 x
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 2 \\
 -1
-\end{bmatrix}
+\end{bmatrix}}_{\vec{col1}}
 +
 y
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 -1 \\
 2
-\end{bmatrix}
+\end{bmatrix}}_{\vec{col2}}
 =
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 0 \\
 3
-\end{bmatrix}
+\end{bmatrix}}_{\vec{b}}
 \end{eqnarray*}\]</div>
 <p>Row picture shows more intuitive depictions, at least, in three dimensional questions. For example:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -386,23 +388,98 @@ y
 <p>In matrix form:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 2 &amp; -1 &amp; 0 \\
 -1 &amp; 2 &amp; -1 \\
 0 &amp; -3 &amp; 4
-\end{bmatrix}
-\begin{bmatrix}
+\end{bmatrix}}_{A}
+\underbrace{\begin{bmatrix}
 x \\
 y \\
 z
-\end{bmatrix}
+\end{bmatrix}}_{\vec{x}}
 =
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 0 \\
 -1 \\
 4
-\end{bmatrix}
+\end{bmatrix}}_{\vec{b}}
 \end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>row picture</p></li>
+<li><p>column picture</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+x
+\underbrace{\begin{bmatrix}
+2 \\
+-1 \\
+0
+\end{bmatrix}}_{\vec{col1}}
++
+y
+\underbrace{\begin{bmatrix}
+-1 \\
+2 \\
+3
+\end{bmatrix}}_{\vec{col2}}
++
+z
+\underbrace{\begin{bmatrix}
+0 \\
+-1 \\
+4
+\end{bmatrix}}_{\vec{col3}}
+=
+\underbrace{\begin{bmatrix}
+0 \\
+-1 \\
+4
+\end{bmatrix}}_{\vec{b}}
+\end{eqnarray*}\]</div>
+<p>We can solve this system. If we change the vector on right hand side:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+x
+\underbrace{\begin{bmatrix}
+2 \\
+-1 \\
+0
+\end{bmatrix}}_{\vec{col1}}
++
+y
+\underbrace{\begin{bmatrix}
+-1 \\
+2 \\
+3
+\end{bmatrix}}_{\vec{col2}}
++
+z
+\underbrace{\begin{bmatrix}
+0 \\
+-1 \\
+4
+\end{bmatrix}}_{\vec{col3}}
+=
+\underbrace{\begin{bmatrix}
+1 \\
+1 \\
+-3
+\end{bmatrix}}_{\vec{b}}
+\end{eqnarray*}\]</div>
+<p>can we still solve it? So a more general questions is:</p>
+<ol class="arabic simple">
+<li><p>can we solve Ax = b fpr every b?</p></li>
+<li><p>do the linear combinations of the collumns fill 3-D space?</p></li>
+</ol>
+<p>For this matrix A, yes because A is nonsingular or invertible!</p>
+</section>
+<section id="ax-is-a-linear-combination-of-columns-of-a">
+<h2>Ax is a linear combination of columns of A<a class="headerlink" href="#ax-is-a-linear-combination-of-columns-of-a" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="elimination-with-matrices">
+<h2>Elimination with matrices<a class="headerlink" href="#elimination-with-matrices" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -461,6 +538,8 @@ z
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-geometry-of-linear-equations">The geometry of linear equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ax-is-a-linear-combination-of-columns-of-a">Ax is a linear combination of columns of A</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elimination-with-matrices">Elimination with matrices</a></li>
 </ul>
   </nav></div>
 
