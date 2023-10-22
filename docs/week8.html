@@ -477,9 +477,69 @@ z
 </section>
 <section id="ax-is-a-linear-combination-of-columns-of-a">
 <h2>Ax is a linear combination of columns of A<a class="headerlink" href="#ax-is-a-linear-combination-of-columns-of-a" title="Permalink to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\begin{bmatrix}
+2 &amp; 5 \\
+1 &amp; 3 \\
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+\end{bmatrix}
+=
+1
+\underbrace{\begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}}_{col1}
++
+2
+\underbrace{\begin{bmatrix}
+5 \\
+3 \\
+\end{bmatrix}}_{col2}
+=
+\begin{bmatrix}
+12 \\
+7 \\
+\end{bmatrix}
+\end{eqnarray*}\]</div>
 </section>
 <section id="elimination-with-matrices">
 <h2>Elimination with matrices<a class="headerlink" href="#elimination-with-matrices" title="Permalink to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+x+2y+z &amp;=&amp; 2 \\\\
+3x+8y+z &amp;=&amp; 12 \\\\
+4y+z &amp;=&amp; 2
+\end{eqnarray*}\]</div>
+<p>In matrix form:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\underbrace{\begin{bmatrix}
+1 &amp; 2 &amp; 1 \\
+3 &amp; 8 &amp; 1 \\
+0 &amp; 4 &amp; 1
+\end{bmatrix}}_{A}
+\underbrace{\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}}_{\vec{x}}
+=
+\underbrace{\begin{bmatrix}
+2 \\
+12 \\
+\end{bmatrix}}_{\vec{b}}
+\end{eqnarray*}\]</div>
+<p>Three keys:</p>
+<ol class="arabic simple">
+<li><p>back-substitution</p></li>
+<li><p>elimination matrices</p></li>
+<li><p>matrix multiplication</p></li>
+</ol>
+<p>We consider augumented matrix along with back-substitution:</p>
 </section>
 </section>
 
