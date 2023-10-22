@@ -154,11 +154,67 @@ can we still solve it? So a more general questions is:
 For this matrix A, yes because A is nonsingular or invertible!
 
 ## Ax is a linear combination of columns of A
+\begin{eqnarray*}
+\begin{bmatrix}
+2 & 5 \\
+1 & 3 \\
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+\end{bmatrix}
+=
+1
+\underbrace{\begin{bmatrix}
+2 \\
+1 \\
+\end{bmatrix}}_{col1}
++
+2
+\underbrace{\begin{bmatrix}
+5 \\
+3 \\
+\end{bmatrix}}_{col2}
+=
+\begin{bmatrix}
+12 \\
+7 \\
+\end{bmatrix}
+\end{eqnarray*}
 
 
 ## Elimination with matrices
+\begin{eqnarray*}
+x+2y+z &=& 2 \\\\
+3x+8y+z &=& 12 \\\\
+4y+z &=& 2
+\end{eqnarray*}
 
+In matrix form:
+\begin{eqnarray*}
+\underbrace{\begin{bmatrix}
+1 & 2 & 1 \\
+3 & 8 & 1 \\
+0 & 4 & 1
+\end{bmatrix}}_{A}
+\underbrace{\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}}_{\vec{x}}
+=
+\underbrace{\begin{bmatrix}
+2 \\
+12 \\
+\end{bmatrix}}_{\vec{b}}
+\end{eqnarray*}
 
+Three keys:
+1. back-substitution
+2. elimination matrices
+3. matrix multiplication
+
+We consider augumented matrix along with back-substitution:
 
 
 
