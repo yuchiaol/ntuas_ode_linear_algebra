@@ -206,6 +206,7 @@ z
 \underbrace{\begin{bmatrix}
 2 \\
 12 \\
+2
 \end{bmatrix}}_{\vec{b}}
 \end{eqnarray*}
 
@@ -215,7 +216,35 @@ Three keys:
 3. matrix multiplication
 
 We consider augumented matrix along with back-substitution:
+\begin{eqnarray*}
+&\begin{matrix}
+1 & 2 & 1 & 2 \\
+3 & 8 & 1 & 12 \\
+0 & 4 & 1 & 2
+\end{matrix}&\\\\
+\Longrightarrow
+&\begin{matrix}
+1 & 2 & 1 & 2 \\
+0 & 2 & -2 & 6 \\
+0 & 4 & 1 & 2
+\end{matrix}&\\\\
+\Longrightarrow
+\text{  }
+&\begin{matrix}
+1 & 2 & 1 & 2 \\
+0 & 2 & -2 & 6 \\
+0 & 0 & 5 & -10
+\end{matrix}&
+\end{eqnarray*}
 
+Now we use back-substitution:
+\begin{eqnarray*}
+x+2y+z &=& 2 \\\\
+  2y-2z &=& 6 \\\\
+     5z &=& -10\\\\
+\Longrightarrow
+x=2, y=1, z&=&-2
+\end{eqnarray*}
 
 
 
