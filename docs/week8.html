@@ -531,6 +531,7 @@ z
 \underbrace{\begin{bmatrix}
 2 \\
 12 \\
+2
 \end{bmatrix}}_{\vec{b}}
 \end{eqnarray*}\]</div>
 <p>Three keys:</p>
@@ -540,6 +541,36 @@ z
 <li><p>matrix multiplication</p></li>
 </ol>
 <p>We consider augumented matrix along with back-substitution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+&amp;\begin{matrix}
+1 &amp; 2 &amp; 1 &amp; 2 \\
+3 &amp; 8 &amp; 1 &amp; 12 \\
+0 &amp; 4 &amp; 1 &amp; 2
+\end{matrix}&amp;\\\\
+\Longrightarrow
+&amp;\begin{matrix}
+1 &amp; 2 &amp; 1 &amp; 2 \\
+0 &amp; 2 &amp; -2 &amp; 6 \\
+0 &amp; 4 &amp; 1 &amp; 2
+\end{matrix}&amp;\\\\
+\Longrightarrow
+\text{  }
+&amp;\begin{matrix}
+1 &amp; 2 &amp; 1 &amp; 2 \\
+0 &amp; 2 &amp; -2 &amp; 6 \\
+0 &amp; 0 &amp; 5 &amp; -10
+\end{matrix}&amp;
+\end{eqnarray*}\]</div>
+<p>Now we use back-substitution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+x+2y+z &amp;=&amp; 2 \\\\
+  2y-2z &amp;=&amp; 6 \\\\
+     5z &amp;=&amp; -10\\\\
+\Longrightarrow
+x=2, y=1, z&amp;=&amp;-2
+\end{eqnarray*}\]</div>
 </section>
 </section>
 

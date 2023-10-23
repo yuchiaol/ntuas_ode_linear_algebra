@@ -17,6 +17,7 @@ and Professor [Steven Strogatz](https://www.stevenstrogatz.com/)'s course materi
 - Requirements: basic knowledge in calculus
 - Office hours: Thursday 4 (11:20 am - 12:10) or by appointment
 - Grading (100%): homework assignments (55%); final exam (25%); midterm exam (15%); class interaction (5%)
+- Course website: [here](https://yuchiaol.github.io/ntuas_ode_linear_algebra/docs/index.html) 
 
 ## Teaching assistants
 - Yih Wang (王逸)
