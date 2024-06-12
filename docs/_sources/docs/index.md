@@ -15,7 +15,7 @@ and Professor [Steven Strogatz](https://www.stevenstrogatz.com/)'s course materi
 - Time: Monday 3,4 (10:20 am - 12:10) and Wednesday 6,7 (1:20 pm - 3:10 pm) 
 - Place: 大氣B105 
 - Requirements: basic knowledge in calculus and programming skills
-- Office hours: Thursday 4 (11:20 am - 12:10) or by appointment
+- Office hours: by appointment
 - Grading (100%): homework assignments (55%); final exam (25%); midterm exam (15%); class interaction (5%)
 - Course website: [here](https://yuchiaol.github.io/ntuas_ode_linear_algebra/docs/index.html) 
 
