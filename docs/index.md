@@ -11,8 +11,8 @@ and Professor [Steven Strogatz](https://www.stevenstrogatz.com/)'s course materi
 ## Class information
 - Curriculum Number: AtmSci2011
 - Curriculum Id Number: 209 27110
-- Credit: 3
-- Time: Monday 3,4 (10:20 am - 12:10) and Thursday 3 (10:20 am - 11:10 am) 
+- Credit: 4
+- Time: Monday 3,4 (10:20 am - 12:10) and Wednesday 6,7 (1:20 pm - 3:10 pm) 
 - Place: 大氣B105 and 大氣A104
 - Requirements: basic knowledge in calculus
 - Office hours: Thursday 4 (11:20 am - 12:10) or by appointment
