@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Applied Mathematics (Ⅰ) &#8212; NTUAS ODE and Linear Algebra</title>
+    <title>Week6 - exponential response formula (ERF) &#8212; NTUAS ODE and Linear Algebra</title>
   
   
   
@@ -64,10 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/week6';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week1 - overview of ODEs" href="week1.html" />
+    <link rel="next" title="Week7 - variation of parameters" href="week7.html" />
+    <link rel="prev" title="Week5 - method of undetermined coefficients" href="week5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -142,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -159,13 +160,13 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="week1.html">Week1 - overview of ODEs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week2.html">Week2 - responses to inputs &amp; complexify</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week3.html">Week3 - integrating factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week4.html">Week4 -  fundamental equation of mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week5.html">Week5 - method of undetermined coefficients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week6.html">Week6 - exponential response formula (ERF)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week6 - exponential response formula (ERF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week7.html">Week7 - variation of parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week8.html">Week8 - Columns and rows of matrix A</a></li>
 </ul>
@@ -222,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/docs/index.md" target="_blank"
+      <li><a href="../_sources/docs/week6.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -304,7 +305,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Applied Mathematics (Ⅰ)</h1>
+    <h1>Week6 - exponential response formula (ERF)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -314,10 +315,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-information">Class information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-assistants">Teaching assistants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-videos">Textbooks and videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-erf-framework">The ERF framework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-revisit">Resonance revisit</a></li>
 </ul>
             </nav>
         </div>
@@ -329,147 +328,221 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="applied-mathematics-i">
-<h1>Applied Mathematics (Ⅰ)<a class="headerlink" href="#applied-mathematics-i" title="Permalink to this heading">#</a></h1>
-<p>This is a short sequence of lectures on Applied Mathematics (Ⅰ) for undergraduate students at the Department of Atmospheric Sciences, National Taiwan University, written by <a class="reference external" href="https://littleyuchiao.wixsite.com/yuchiaol">Yu-Chiao Liang</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Some of the course materials were modified from Professor <a class="reference external" href="https://math.mit.edu/~gs/">Gilbert Strang</a>’s,
-Professor <a class="reference external" href="https://en.wikipedia.org/wiki/Arthur_Mattuck">Arthur Mattuck</a>’s,
-and Professor <a class="reference external" href="https://www.stevenstrogatz.com/">Steven Strogatz</a>’s course materials, and many online materials.</p>
+  <section id="week6-exponential-response-formula-erf">
+<span id="week6"></span><h1>Week6 - exponential response formula (ERF)<a class="headerlink" href="#week6-exponential-response-formula-erf" title="Permalink to this heading">#</a></h1>
+<section id="the-erf-framework">
+<h2>The ERF framework<a class="headerlink" href="#the-erf-framework" title="Permalink to this heading">#</a></h2>
+<p>This method gives us guide to find the nonhomogeneous (particular) solutions for exponential-type forcing or source term.
+Consider the second order ODE:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+A''+by'+cy &amp;=&amp; e^{\alpha x}, \alpha \in \mathbb{C} \\\\
+&amp;=&amp; e^{(a+i\omega)x}\\\\
+\Longrightarrow (D^{2}+AD+B)y &amp;=&amp; P(D)y = e^{\alpha x}
+\end{eqnarray*}\]</div>
+<p>Below exponential inputs are all special cases of exponential function</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+e^{ax}, \sin{}(\omega x), \cos{}(\omega x), e^{ax}\sin{}(\omega x), e^{ax}\cos{}(\omega x)
+\end{eqnarray*}\]</div>
+<div class="proof example admonition" id="my-example_erf1">
+<p class="admonition-title"><span class="caption-number">Example 9 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D)e^{\alpha x} = P(\alpha)e^{\alpha x}
+\end{eqnarray*}\]</div>
+</section>
+</div><div class="proof theorem admonition" id="my-theorem_erf1">
+<p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Exponential-input theorem</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p} = \frac{e^{\alpha x}}{p(\alpha)} \text{ solves } P(D)y=e^{\alpha x}
+\end{eqnarray*}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. if</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D)y_{p} = e^{\alpha x},
+\end{eqnarray*}\]</div>
+<p>then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D)\frac{e^{\alpha x}}{P(\alpha)} = \frac{1}{P(\alpha)}P(D)e^{\alpha x} = \frac{1}{P(\alpha)}P(\alpha)e^{\alpha x} = e^{\alpha x}
+\end{eqnarray*}\]</div>
 </div>
-<section id="class-information">
-<h2>Class information<a class="headerlink" href="#class-information" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Curriculum Number: AtmSci2011</p></li>
-<li><p>Curriculum Id Number: 209 27110</p></li>
-<li><p>Credit: 4</p></li>
-<li><p>Time: Monday 3,4 (10:20 am - 12:10) and Wednesday 6,7 (1:20 pm - 3:10 pm)</p></li>
-<li><p>Place: 大氣B105</p></li>
-<li><p>Requirements: basic knowledge in calculus and programming skills</p></li>
-<li><p>Office hours: by appointment</p></li>
-<li><p>Grading (100%): homework assignments (55%); final exam (25%); midterm exam (15%); class interaction (5%)</p></li>
-<li><p>Course website: <a class="reference external" href="https://yuchiaol.github.io/ntuas_ode_linear_algebra/docs/index.html">here</a></p></li>
-</ul>
+<div class="proof example admonition" id="my-example_erf2">
+<p class="admonition-title"><span class="caption-number">Example 10 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''-y'+2y=10e^{-x}\sin{}(x)
+\end{eqnarray*}\]</div>
+<p>We first complixy the ODE, solve the particular solution, and find its imaginary part:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\tilde{y_{p}}'' - \tilde{y_{p}}' + 2\tilde{y_{p}} &amp;=&amp; 10e^{(-1+i)x} \\\\
+P(D) = (D^{2} - D + 2) &amp;\rightarrow&amp; P(\alpha) = \alpha^{2}-\alpha+2
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(D^{2} - D + 2)\tilde{y_{p}} &amp;=&amp; 10e^{(-1+i)x} \\\\
+\Longrightarrow \tilde{y_{p}} = \frac{10e^{(-1+i)x}}{(-1+i)^{2}-(-1+i)+2} &amp;=&amp; \frac{10e^{(-1+i)x}}{3-3i} = \frac{5}{3}(1+i)e^{(-1+i)x}.
+\end{eqnarray*}\]</div>
+<p>So the particular solution is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p} = \mathfrak{Im}(\tilde{y_{p}}) = \frac{5}{3}e^{-x}(\sin{}(x)+\cos{}(x)) = \frac{5}{3}e^{-x}\sqrt{2}(\cos{}(x-\frac{\pi}{4}))
+\end{eqnarray*}\]</div>
 </section>
-<section id="teaching-assistants">
-<h2>Teaching assistants<a class="headerlink" href="#teaching-assistants" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Yih Wang (王逸)</p></li>
-<li><p>Shih-Ni Zhou (周詩倪)</p></li>
-<li><p>Jui-Jiun Lin (林瑞均)</p></li>
-<li><p>Ya-Fan Chung (鍾雅帆)</p></li>
-</ul>
+</div><div class="proof theorem admonition" id="my-theorem_erf2">
+<p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Exponential-shift theorem</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D)e^{ax}u(x) = e^{ax}P(D+a)u(x)
+\end{eqnarray*}\]</div>
 </section>
-<section id="course-description">
-<h2>Course description<a class="headerlink" href="#course-description" title="Permalink to this heading">#</a></h2>
-<p>This course gives students overviews of linear first and second order ordinary differential equations (OEDs) and linear algebra. The math skills will be applied to atmospheric sciences problems.</p>
-<p>First order ODEs:</p>
-<ul class="simple">
-<li><p>responses to (complex) exponential, oscillating, delta and step function inputs</p></li>
-<li><p>integrating factor</p></li>
-<li><p>separable euqations</p></li>
-<li><p>exact solution</p></li>
-<li><p>phase line</p></li>
-</ul>
-<p>Second order ODEs:</p>
-<ul class="simple">
-<li><p>fundamental equation of mechanics</p></li>
-<li><p>forced harmonic motion</p></li>
-<li><p>unforced damped motion</p></li>
-<li><p>impulse response, exponential response</p></li>
-<li><p>method of undetermined coefficients</p></li>
-<li><p>variation of parameters</p></li>
-</ul>
-<p>Linear algebra:</p>
-<ul class="simple">
-<li><p>row and column view of matrix multiplication</p></li>
-<li><p>independence, basis, and dimension</p></li>
-<li><p>four fundamental subspaces</p></li>
-<li><p>factorization</p></li>
-</ul>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Consider</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D)e^{ax}u(x) &amp;=&amp; (D^{2}+AD+B)e^{ax}u(x) \\\\
+&amp;=&amp; D^{2}(e^{ax}u)+AD(e^{ax}u)+B(e^{ax}u) \\\\
+&amp;=&amp; D(D(e^{ax}u))+AD(e^{ax}u)+B(e^{ax}u) \\\\
+&amp;=&amp; D(ae^{ax}u+e^{ax}Du) + A(ae^{ax}u+e^{ax}Du) + B(e^{ax}u) \\\\
+&amp;=&amp; e^{ax}(a^{2}u+aDu+aDu+D^{2}u+aAu+ADu+Bu) \\\\
+&amp;=&amp; e^{ax}(D^{2}u+2aDu+a^{2}u+A(Du+au)+Bu) \\\\
+&amp;=&amp; e^{ax}((D+a)^{2}u+A(D+a)u+Bu) \\\\
+&amp;=&amp; e^{ax}P(D+a)u(x)
+\end{eqnarray*}\]</div>
+</div>
+<div class="proof theorem admonition" id="my-theorem_erf3">
+<p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Resonance</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(D^{2}+AD+B)y = e^{ax},
+\end{eqnarray*}\]</div>
+<p>where a is complex.</p>
 <ol class="arabic simple">
-<li><p>CR decomposition:</p></li>
+<li><p>If P(a) = 0,  a is a simple root of P(D), then the particular solution is</p></li>
 </ol>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-A = CR
+y_p{ = \frac{xe^{ax}}{P'(a)}}
 \end{eqnarray*}\]</div>
 <ol class="arabic simple" start="2">
-<li><p>LU elimination:</p></li>
+<li><p>If a is a double root, then the particular solution is</p></li>
 </ol>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-A = LU
+y_p{ = \frac{x^{2}e^{ax}}{P''(a)}}
 \end{eqnarray*}\]</div>
-<ol class="arabic simple" start="3">
-<li><p>orthogonalization (Gram-Schmidt):</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = QR
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="4">
-<li><p>eigenvalues:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-S = Q\Lambda Q^{T}
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="5">
-<li><p>diagonalization:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = X\Lambda X^{T}
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="6">
-<li><p>singular value decomposition (SVD):</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = U\Sigma V^{T}
-\end{eqnarray*}\]</div>
-<p>Solving linear system:</p>
-<ul class="simple">
-<li><p>matrix exponential</p></li>
-<li><p>phase plane: source, sink, saddle</p></li>
-</ul>
 </section>
-<section id="textbooks-and-videos">
-<h2>Textbooks and videos<a class="headerlink" href="#textbooks-and-videos" title="Permalink to this heading">#</a></h2>
-<p>Differential Equations and Linear Algebra:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/dela/">https://math.mit.edu/~gs/dela/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLMsYJgjgZE8iBpOBZEsS8PuwNBkwMcjix">https://www.youtube.com/playlist?list=PLMsYJgjgZE8iBpOBZEsS8PuwNBkwMcjix</a></p></li>
-</ul>
-<p>Differential Equations:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/">https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E">https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E</a></p></li>
-</ul>
-<p>Introduction to Linear Algebra:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/linearalgebra/">https://math.mit.edu/~gs/linearalgebra/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8">https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8</a></p></li>
-</ul>
-<p>Linear Algebra and Learning from Data:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k">https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k</a></p></li>
-</ul>
-<p>Nonlinear Dynamics and Chaos:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering">https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V">https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V</a></p></li>
-</ul>
-<p>Advanced Engineering Mathematics:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929">https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929</a></p></li>
-</ul>
-</section>
-<div class="toctree-wrapper compound">
+</div><div class="proof admonition" id="proof">
+<p>Proof. 1. simple root case.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D) &amp;=&amp; (D-b)(D-a) = D^{2} - (a+b) + ab, a\neq b \\\\
+P'(D) &amp;=&amp; (D-a) + (D-b)) \\\\
+P'(a) &amp;=&amp; a-b \\\\
+P(D)\frac{xe^{ax}}{P'(a)} &amp;=&amp; e^{ax}\frac{P(D+a)x}{P'(a)} \\\\
+&amp;=&amp; \frac{e^{ax}(D+a-b)(D+a-a)x}{P'(a)} = \frac{e^{ax}(D+a-b)Dx}{P'(a)} \\\\
+&amp;=&amp; \frac{e^{ax}(a-b)}{a-b} = e^{ax}
+\end{eqnarray*}\]</div>
 </div>
+<div class="proof example admonition" id="my-example_erf3">
+<p class="admonition-title"><span class="caption-number">Example 11 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''-3y'+2y = e^{x}\\\\
+\Longrightarrow P(D) = D^{2}-3D+2
+\end{eqnarray*}\]</div>
+<p>So 1 is a simple root.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P'(D) = 2D-3\\\\
+P'(1) = -1
+\end{eqnarray*}\]</div>
+<p>The particular solution is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p} = \frac{xe^{x}}{-1} = -xe^{x}
+\end{eqnarray*}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. 2. double root case.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+P(D) &amp;=&amp; (D-a)(D-a) \\\\
+P'(D) &amp;=&amp; (D-a) + (D-a) = 2(D-a) \\\\
+P'(a) &amp;=&amp; 2(a-a)=0 \\\\
+P''(D) &amp;=&amp; 2, P''(a) = 2\\\\
+P(D)y_{p} &amp;=&amp; P(D)\frac{x^{2}e^{ax}}{P''(a)}=\frac{e^{ax}P(D+a)x^{2}}{2} \\\\
+&amp;=&amp; \frac{e^{ax}Dx^{2}}{2} = e^{ax}\frac{2Dx}{2}=e^{ax}
+\end{eqnarray*}\]</div>
+</div>
+</section>
+<section id="resonance-revisit">
+<h2>Resonance revisit<a class="headerlink" href="#resonance-revisit" title="Permalink to this heading">#</a></h2>
+<p>Now we can revisit the resonance case with ERF. Consider below ODE and assume input frequency is not equal to the natural frequency.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y'' + \omega_{o}^{2}y &amp;=&amp; \cos{}(\omega_{1}t), \omega_{o} \neq \omega_{1} \\\\
+(D^{2}+\omega_{o}^{2})y &amp;=&amp; \cos{}(\omega_{1}t) \rightarrow P(D) = (D^{2} + \omega_{o}^{2})
+\end{eqnarray*}\]</div>
+<p>Complexify the ODE:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(D^{2} + \omega_{o}^{2})\tilde{y_{p}} &amp;=&amp; e^{i\omega_{1}t} \\\\
+\Longrightarrow \tilde{y_{p}} &amp;=&amp; \frac{e^{i\omega_{1}t}}{(i\omega_{1})^{2}+\omega_{o}^{2}} = \frac{e^{i\omega_{1}t}}{\omega_{o}^{2}-\omega_{1}^{2}} \\\\
+\Longrightarrow y_{p} &amp;=&amp; \Re (\tilde{y_{p}}) = \frac{\cos{}(\omega_{1}t)}{\omega_{o}^{2}-\omega_{1}^{2}}, \text{  not a very particular solution.} \\\\
+\text{We can see if } \omega_{1} \approx \omega_{o} \text{, big amplitude occurs.}
+\end{eqnarray*}\]</div>
+<p>Consider a very particular solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{vp} = \frac{\cos{}(\omega_{1}t)}{\omega_{o}^{2}-\omega_{1}^{2}} - \frac{\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}\\\\
+\lim_{\omega_{1}\to \omega_{o}}\frac{\cos{}(\omega_{1}t)-\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}
+\end{eqnarray*}\]</div>
+<p>When the two frequencies are very similar:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\lim_{\omega_{1}\to \omega_{o}}\frac{-\sin{}(\omega_{1}t)t}{-2\omega_{1}} = \frac{t\sin{}(\omega_{o}t)}{2\omega_{o}}
+\end{eqnarray*}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The geometric meaning of the very particular solution is “beats”:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{\cos{}(\omega_{1}t)-\cos{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}} 
+&amp;=&amp; \frac{2\sin{}(\frac{\omega_{o}-\omega_{1}}{2}t)\sin{}(\frac{\omega_{o}+\omega_{1}}{2}t)}{\omega_{o}^{2}-\omega_{1}^{2}} \\\\
+&amp;\approx&amp; \frac{2\sin{}(\frac{\omega_{o}-\omega_{1}}{2}t)\sin{}(\omega_{o}t)}{\omega_{o}^{2}-\omega_{1}^{2}}
+\end{eqnarray*}\]</div>
+</div>
+<p>When resonance occurs, we can apply ERF directly:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\omega_{1} &amp;=&amp; \omega_{o}\\\\
+(D^{2} + \omega_{o}^{2})y_{p} &amp;=&amp; \cos{}(\omega_{o}t) \rightarrow P(D) = (D^{2} + \omega_{o}^{2}).
+\end{eqnarray*}\]</div>
+<p>Complexify the equation, we can get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(D^{2} + \omega_{o}^{2})\tilde{y_{p}} &amp;=&amp; e^{i\omega_{o}t}, \\\\
+P(i\omega_{o}) &amp;=&amp; (i\omega_{o})^{2} + \omega_{o}^{2} = 0 \\\\
+P'(i\omega_{o}) &amp;=&amp; 2i\omega_{o} \\\\
+\Longrightarrow \tilde{y_{p}} &amp;=&amp; \frac{te^{i\omega_{o}t}}{2i\omega_{o}} \\\\
+\Longrightarrow y_{p} &amp;=&amp; \Re (\tilde{y_{p}}) = \frac{t\sin{}(\omega_{o}t)}{2\omega_{o}}
+\end{eqnarray*}\]</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -502,12 +575,21 @@ A = U\Sigma V^{T}
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="week5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week5 - method of undetermined coefficients</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="week1.html"
+       href="week7.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week1 - overview of ODEs</p>
+        <p class="prev-next-title">Week7 - variation of parameters</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -526,10 +608,8 @@ A = U\Sigma V^{T}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-information">Class information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-assistants">Teaching assistants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-videos">Textbooks and videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-erf-framework">The ERF framework</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-revisit">Resonance revisit</a></li>
 </ul>
   </nav></div>
 

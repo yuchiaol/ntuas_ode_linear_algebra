@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Applied Mathematics (Ⅰ) &#8212; NTUAS ODE and Linear Algebra</title>
+    <title>Week5 - method of undetermined coefficients &#8212; NTUAS ODE and Linear Algebra</title>
   
   
   
@@ -64,10 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/week5';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week1 - overview of ODEs" href="week1.html" />
+    <link rel="next" title="Week6 - exponential response formula (ERF)" href="week6.html" />
+    <link rel="prev" title="Week4 - fundamental equation of mechanics" href="week4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -142,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -159,12 +160,12 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="week1.html">Week1 - overview of ODEs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week2.html">Week2 - responses to inputs &amp; complexify</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week3.html">Week3 - integrating factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week4.html">Week4 -  fundamental equation of mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week5.html">Week5 - method of undetermined coefficients</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week5 - method of undetermined coefficients</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week6.html">Week6 - exponential response formula (ERF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week7.html">Week7 - variation of parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week8.html">Week8 - Columns and rows of matrix A</a></li>
@@ -222,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/docs/index.md" target="_blank"
+      <li><a href="../_sources/docs/week5.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,9 +292,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -304,22 +303,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Applied Mathematics (Ⅰ)</h1>
+    <h1>Week5 - method of undetermined coefficients</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-information">Class information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-assistants">Teaching assistants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-videos">Textbooks and videos</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -329,148 +317,174 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="applied-mathematics-i">
-<h1>Applied Mathematics (Ⅰ)<a class="headerlink" href="#applied-mathematics-i" title="Permalink to this heading">#</a></h1>
-<p>This is a short sequence of lectures on Applied Mathematics (Ⅰ) for undergraduate students at the Department of Atmospheric Sciences, National Taiwan University, written by <a class="reference external" href="https://littleyuchiao.wixsite.com/yuchiaol">Yu-Chiao Liang</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Some of the course materials were modified from Professor <a class="reference external" href="https://math.mit.edu/~gs/">Gilbert Strang</a>’s,
-Professor <a class="reference external" href="https://en.wikipedia.org/wiki/Arthur_Mattuck">Arthur Mattuck</a>’s,
-and Professor <a class="reference external" href="https://www.stevenstrogatz.com/">Steven Strogatz</a>’s course materials, and many online materials.</p>
-</div>
-<section id="class-information">
-<h2>Class information<a class="headerlink" href="#class-information" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Curriculum Number: AtmSci2011</p></li>
-<li><p>Curriculum Id Number: 209 27110</p></li>
-<li><p>Credit: 4</p></li>
-<li><p>Time: Monday 3,4 (10:20 am - 12:10) and Wednesday 6,7 (1:20 pm - 3:10 pm)</p></li>
-<li><p>Place: 大氣B105</p></li>
-<li><p>Requirements: basic knowledge in calculus and programming skills</p></li>
-<li><p>Office hours: by appointment</p></li>
-<li><p>Grading (100%): homework assignments (55%); final exam (25%); midterm exam (15%); class interaction (5%)</p></li>
-<li><p>Course website: <a class="reference external" href="https://yuchiaol.github.io/ntuas_ode_linear_algebra/docs/index.html">here</a></p></li>
-</ul>
-</section>
-<section id="teaching-assistants">
-<h2>Teaching assistants<a class="headerlink" href="#teaching-assistants" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Yih Wang (王逸)</p></li>
-<li><p>Shih-Ni Zhou (周詩倪)</p></li>
-<li><p>Jui-Jiun Lin (林瑞均)</p></li>
-<li><p>Ya-Fan Chung (鍾雅帆)</p></li>
-</ul>
-</section>
-<section id="course-description">
-<h2>Course description<a class="headerlink" href="#course-description" title="Permalink to this heading">#</a></h2>
-<p>This course gives students overviews of linear first and second order ordinary differential equations (OEDs) and linear algebra. The math skills will be applied to atmospheric sciences problems.</p>
-<p>First order ODEs:</p>
-<ul class="simple">
-<li><p>responses to (complex) exponential, oscillating, delta and step function inputs</p></li>
-<li><p>integrating factor</p></li>
-<li><p>separable euqations</p></li>
-<li><p>exact solution</p></li>
-<li><p>phase line</p></li>
-</ul>
-<p>Second order ODEs:</p>
-<ul class="simple">
-<li><p>fundamental equation of mechanics</p></li>
-<li><p>forced harmonic motion</p></li>
-<li><p>unforced damped motion</p></li>
-<li><p>impulse response, exponential response</p></li>
-<li><p>method of undetermined coefficients</p></li>
-<li><p>variation of parameters</p></li>
-</ul>
-<p>Linear algebra:</p>
-<ul class="simple">
-<li><p>row and column view of matrix multiplication</p></li>
-<li><p>independence, basis, and dimension</p></li>
-<li><p>four fundamental subspaces</p></li>
-<li><p>factorization</p></li>
-</ul>
+  <section id="week5-method-of-undetermined-coefficients">
+<span id="week5"></span><h1>Week5 - method of undetermined coefficients<a class="headerlink" href="#week5-method-of-undetermined-coefficients" title="Permalink to this heading">#</a></h1>
+<p>This method gives us guide to find the nonhomogeneous (particular) solutions.
+Consider the general form of second order ODE:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+A''+by'+cy = q(t)
+\end{eqnarray*}\]</div>
+<p>We guess the form of nonhomogeneous (particular) solutions based on the form of q(t):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+q(t) &amp;\rightarrow&amp; y_{p}(t)\\\\
+t, 1 &amp;\rightarrow&amp; a+bt\\\\
+e^{st} &amp;\rightarrow&amp; Ye^{st} \text{(if resonance: } Yt^{n}e^{st})\\\\
+te^{st} &amp;\rightarrow&amp; (a+bt)e^{st}\\\\
+\sin{}(\omega t), \cos{}(\omega t) &amp;\rightarrow&amp; M\cos{}(\omega t) + N\sin{}(\omega t)\\\\
+t\cos{}(\omega t) &amp;\rightarrow&amp; (a+bt)\cos{}(\omega t) + (c+dt)\sin{}(\omega t)\\\\
+e^{i\omega t}, e^{-i\omega t} &amp;\rightarrow&amp; Ye^{-i\omega t}
+\end{eqnarray*}\]</div>
+<div class="proof example admonition" id="my-example3">
+<p class="admonition-title"><span class="caption-number">Example 3 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+5y'+6y=e^{4t}
+\end{eqnarray*}\]</div>
 <ol class="arabic simple">
-<li><p>CR decomposition:</p></li>
+<li><p>homogeneous solution:</p></li>
 </ol>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-A = CR
+r^2+5r+6=0 \rightarrow r = -2, -3\\\\
+\Longrightarrow y_{h}(t) = c_{1}e^{-2t}+c_{2}e^{-3t}
 \end{eqnarray*}\]</div>
 <ol class="arabic simple" start="2">
-<li><p>LU elimination:</p></li>
+<li><p>nonhomogeneous/particular solution by guessing the form of source/input term.
+We have one undetermined coefficient Y.</p></li>
 </ol>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-A = LU
+y_{p}(t) &amp;=&amp; Ye^{4t} \rightarrow 16Y+20Y+6Y = 1 \rightarrow Y=\frac{1}{42} \\\\
+&amp;\Longrightarrow&amp; y_{p}(t) = \frac{1}{42}e^{4t}
 \end{eqnarray*}\]</div>
 <ol class="arabic simple" start="3">
-<li><p>orthogonalization (Gram-Schmidt):</p></li>
+<li><p>general/complete solution:</p></li>
 </ol>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-A = QR
+y(t) = c_{1}e^{-2t}+c_{2}e^{-3t} + \frac{1}{42}e^{4t}
 \end{eqnarray*}\]</div>
-<ol class="arabic simple" start="4">
-<li><p>eigenvalues:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-S = Q\Lambda Q^{T}
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="5">
-<li><p>diagonalization:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = X\Lambda X^{T}
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="6">
-<li><p>singular value decomposition (SVD):</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = U\Sigma V^{T}
-\end{eqnarray*}\]</div>
-<p>Solving linear system:</p>
-<ul class="simple">
-<li><p>matrix exponential</p></li>
-<li><p>phase plane: source, sink, saddle</p></li>
-</ul>
 </section>
-<section id="textbooks-and-videos">
-<h2>Textbooks and videos<a class="headerlink" href="#textbooks-and-videos" title="Permalink to this heading">#</a></h2>
-<p>Differential Equations and Linear Algebra:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/dela/">https://math.mit.edu/~gs/dela/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLMsYJgjgZE8iBpOBZEsS8PuwNBkwMcjix">https://www.youtube.com/playlist?list=PLMsYJgjgZE8iBpOBZEsS8PuwNBkwMcjix</a></p></li>
-</ul>
-<p>Differential Equations:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/">https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E">https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E</a></p></li>
-</ul>
-<p>Introduction to Linear Algebra:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/linearalgebra/">https://math.mit.edu/~gs/linearalgebra/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8">https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8</a></p></li>
-</ul>
-<p>Linear Algebra and Learning from Data:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k">https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k</a></p></li>
-</ul>
-<p>Nonlinear Dynamics and Chaos:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering">https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V">https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V</a></p></li>
-</ul>
-<p>Advanced Engineering Mathematics:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929">https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929</a></p></li>
-</ul>
+</div><div class="proof example admonition" id="my-example4">
+<p class="admonition-title"><span class="caption-number">Example 4 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+5y'=e^{it}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple">
+<li><p>homogeneous solution:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r^2+r=0 \rightarrow r(r+1)=0 \rightarrow = 0, -1\\\\
+\Longrightarrow y_{h}(t) = c_{1}e^{0t}+c_{2}e^{-t} = c_{1}+c_{2}e^{-t}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>nonhomogeneous/particular solution by guessing the form of source/input term.
+We have one undetermined coefficient Y.</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t) &amp;=&amp; Ye^{it} \rightarrow Y(i^{2}+i) = 1 \rightarrow Y=\frac{1}{i-1} \\\\
+&amp;\Longrightarrow&amp; y_{p}(t) = \frac{1}{i-1}e^{it}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>general/complete solution:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = c_{1}+c_{2}e^{-t} + \frac{1}{i-1}e^{it}
+\end{eqnarray*}\]</div>
 </section>
-<div class="toctree-wrapper compound">
-</div>
+</div><div class="proof example admonition" id="my-example5">
+<p class="admonition-title"><span class="caption-number">Example 5 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y'''+2y''+y'=e^{3t}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple">
+<li><p>homogeneous solution:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r^{3}+2r^{2}+r=0 \rightarrow r(r+1)^{2}=0 \rightarrow = 0, -1, -1\\\\
+\Longrightarrow y_{h}(t) = c_{1}e^{0t}+c_{2}e^{-t} + c_{3}te^{-t} = c_{1}+c_{2}e^{-t} + c_{3}te^{-t}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>nonhomogeneous/particular solution by guessing the form of source/input term.
+We have one undetermined coefficient Y.</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t) &amp;=&amp; Ye^{3t} \rightarrow 27Y+18Y+3Y = 1 \rightarrow Y=\frac{1}{48} \\\\
+&amp;\Longrightarrow&amp; y_{p}(t) = \frac{1}{i-1}e^{it}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>general/complete solution:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = c_{1}+c_{2}e^{-t} + c_{3}te^{-t} + \frac{1}{48}e^{3t}
+\end{eqnarray*}\]</div>
 </section>
+</div><div class="proof example admonition" id="my-example6">
+<p class="admonition-title"><span class="caption-number">Example 6 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+y'+y=t
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>nonhomogeneous/particular solution by guessing the form of source/input term.
+We have two undetermined coefficients.</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t) &amp;=&amp; a+bt \rightarrow b+a+bt = t \rightarrow b=1, a=-1 \\\\
+&amp;\Longrightarrow&amp; y_{p}(t) = -1+t
+\end{eqnarray*}\]</div>
+</section>
+</div><div class="proof example admonition" id="my-example7">
+<p class="admonition-title"><span class="caption-number">Example 7 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+y'+y=\sin{}(t)
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>nonhomogeneous/particular solution by guessing the form of source/input term.
+We have two undetermined coefficient Y.</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t) &amp;=&amp; c_{1}\cos{}(t) + c_{2}\sin{}(t) \\\\
+&amp;\Longrightarrow&amp; -c_{1}\cos{}(t) - c_{2}\sin{}(t) - c_{1}\sin{}(t) + c_{2}\cos{}(t) + c_{1}\cos{}(t) + c_{2}\sin{}(t) = \sin{}(t) \\\\
+&amp;\Longrightarrow&amp; c_{2} = 0, c_{1}=-1 \\\\
+&amp;\Longrightarrow&amp; y_{p}(t) = -\cos{}(t)
+\end{eqnarray*}\]</div>
+</section>
+</div><div class="proof example admonition" id="my-example8">
+<p class="admonition-title"><span class="caption-number">Example 8 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+y'+y=t\sin{}(t)
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>nonhomogeneous/particular solution by guessing the form of source/input term.
+We have four undetermined coefficients.</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{p}(t) &amp;=&amp; (a+bt)\cos{}(t) + (c+dt)\sin{}(t)
+\end{eqnarray*}\]</div>
+</section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {
@@ -502,12 +516,21 @@ A = U\Sigma V^{T}
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="week4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week4 -  fundamental equation of mechanics</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="week1.html"
+       href="week6.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week1 - overview of ODEs</p>
+        <p class="prev-next-title">Week6 - exponential response formula (ERF)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -517,23 +540,6 @@ A = U\Sigma V^{T}
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-information">Class information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-assistants">Teaching assistants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-videos">Textbooks and videos</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

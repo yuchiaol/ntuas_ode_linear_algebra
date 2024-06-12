@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Applied Mathematics (Ⅰ) &#8212; NTUAS ODE and Linear Algebra</title>
+    <title>Week4 - fundamental equation of mechanics &#8212; NTUAS ODE and Linear Algebra</title>
   
   
   
@@ -64,10 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/week4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week1 - overview of ODEs" href="week1.html" />
+    <link rel="next" title="Week5 - method of undetermined coefficients" href="week5.html" />
+    <link rel="prev" title="Week3 - integrating factor" href="week3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -142,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -159,11 +160,11 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="week1.html">Week1 - overview of ODEs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week2.html">Week2 - responses to inputs &amp; complexify</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week3.html">Week3 - integrating factor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week4.html">Week4 -  fundamental equation of mechanics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week4 -  fundamental equation of mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week5.html">Week5 - method of undetermined coefficients</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week6.html">Week6 - exponential response formula (ERF)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week7.html">Week7 - variation of parameters</a></li>
@@ -222,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/docs/index.md" target="_blank"
+      <li><a href="../_sources/docs/week4.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -304,7 +305,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Applied Mathematics (Ⅰ)</h1>
+    <h1>Week4 -  fundamental equation of mechanics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -314,10 +315,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-information">Class information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-assistants">Teaching assistants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-videos">Textbooks and videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-linear-homogeneous-odes">Second order linear (homogeneous) ODEs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case1-two-real-roots-overdamping">Case1: two real roots (overdamping)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case2-two-equal-roots-critical-damping">Case2: two equal roots (critical damping)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-complex-roots-undamped-underdamped">Case 3: complex roots (undamped/underdamped)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-between-electrical-and-spring-dash-pot-system">Similarity between electrical and spring-dash pot system</a></li>
 </ul>
             </nav>
         </div>
@@ -329,147 +331,260 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="applied-mathematics-i">
-<h1>Applied Mathematics (Ⅰ)<a class="headerlink" href="#applied-mathematics-i" title="Permalink to this heading">#</a></h1>
-<p>This is a short sequence of lectures on Applied Mathematics (Ⅰ) for undergraduate students at the Department of Atmospheric Sciences, National Taiwan University, written by <a class="reference external" href="https://littleyuchiao.wixsite.com/yuchiaol">Yu-Chiao Liang</a>.</p>
+  <section id="week4-fundamental-equation-of-mechanics">
+<span id="week4"></span><h1>Week4 -  fundamental equation of mechanics<a class="headerlink" href="#week4-fundamental-equation-of-mechanics" title="Permalink to this heading">#</a></h1>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+&amp;mx''&amp; = &amp;-kx&amp; - &amp;cx'&amp;\\
+&amp;\uparrow&amp; &amp;\uparrow&amp; &amp;\uparrow&amp;\\
+&amp;\text{Force (Newton)}&amp; &amp;\text{spring (Hooke)}&amp; &amp;\text{dash pot/damping}&amp;
+\end{eqnarray*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\Longrightarrow mx''+cx'+kx=0\\\\
+\Longrightarrow x''+ \frac{c}{m}x'+ \frac{k}{m}x=0
+\end{eqnarray*}\]</div>
+<figure class="align-default" id="car">
+<a class="reference internal image-reference" href="_static/figures/car_ode.jpeg"><img alt="_static/figures/car_ode.jpeg" src="_static/figures/car_ode.jpeg" /></a>
+</figure>
+<section id="second-order-linear-homogeneous-odes">
+<h2>Second order linear (homogeneous) ODEs<a class="headerlink" href="#second-order-linear-homogeneous-odes" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>to find two independent solutions (homogeneous solutions)</p></li>
+<li><p>general form:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\frac{d^{2}y}{dt^{2}}+A\frac{dy}{dt}+By=0, \text{ given } y(0)=1, y'(0)=0.
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>basic method guess and plug in the exponential solution:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\text{try } y(t)&amp;=&amp;e^{rt}\\\\ 
+\rightarrow r^{2}e^{rt} + Are^{rt} &amp;+&amp; Be^{rt} = 0\\\\
+\rightarrow r^{2} + Ar &amp;+&amp; B = 0 \text{ characteristic equation}.
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>we can solve r:</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r=\frac{-A\pm \sqrt{A^{2}-4B}}{2}
+\end{eqnarray*}\]</div>
+</section>
+<section id="case1-two-real-roots-overdamping">
+<h2>Case1: two real roots (overdamping)<a class="headerlink" href="#case1-two-real-roots-overdamping" title="Permalink to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r_{1} \neq r_{2} \rightarrow y(t)=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t}
+\end{eqnarray*}\]</div>
+<div class="proof example admonition" id="my-example1">
+<p class="admonition-title"><span class="caption-number">Example 1 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+4y'+3y=0, y(0)=1, y'(0)=0
+\end{eqnarray*}\]</div>
+<p>The characteristic equation is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r^{2}&amp;+&amp;4r+3=0\\\\
+&amp;\Longrightarrow&amp; (r+3)(r+1)=0 \rightarrow r=-3, -1\\\\
+&amp;\Longrightarrow&amp; y(t)=c_{1}e^{-3t}+c_{2}e^{-t}
+\end{eqnarray*}\]</div>
+<p>Use initial conditions</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(0)&amp;=&amp;1=c_{1}+c_{2}, \\\\
+y'(0)&amp;=&amp;0=-3c_{1}-c_{2}\\\\
+&amp;\Longrightarrow&amp; c_{1}=\frac{-1}{2}, c_{2}=\frac{3}{2}\\\\
+&amp;\Longrightarrow&amp; y(t)=\frac{-1}{2}e^{-3t}+\frac{3}{2}e^{-t}
+\end{eqnarray*}\]</div>
+</section>
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Why the solutions are always “damped”? Can you link this result to the value of r?</p>
+</div>
+<ul class="simple">
+<li><p>the plot for possible solutions y(t):</p></li>
+</ul>
+<figure class="align-default" id="overdamp">
+<a class="reference internal image-reference" href="_static/figures/overdamp.png"><img alt="_static/figures/overdamp.png" src="_static/figures/overdamp.png" /></a>
+</figure>
+</section>
+<section id="case2-two-equal-roots-critical-damping">
+<h2>Case2: two equal roots (critical damping)<a class="headerlink" href="#case2-two-equal-roots-critical-damping" title="Permalink to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r_{1} = r_{2} = -a \rightarrow (r+a)^{2}=0 \rightarrow r^{2}+2ar+a^{2}=0.
+\end{eqnarray*}\]</div>
+<p>So the ODE can be expressed as:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+2ay'+a^{2}y=0.
+\end{eqnarray*}\]</div>
+<p>Now we only have one solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t)=e^{-at}=y_{1}(t)
+\end{eqnarray*}\]</div>
+<p>But we need one more. Let’s try this:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\text{let } y_{2}(t)=u(t)y_{1}(t)\\\\
+a^{2}&amp;\times&amp; (y_{2} = ue^{-at})\\\\
+2a&amp;\times&amp; (y_{2}'=u(-ae^{-at}) +u'e^{-at})\\\\
+1&amp;\times&amp; (y_{2}''=a^{2}e^{-at}u-ae^{-at}u'-ae^{-at}u'+e^{-at}u'')\\\\
+&amp;\Longrightarrow&amp; 0 = 0 + 0 + e^{-at}u''\\\\
+&amp;\Longrightarrow&amp; u'' = 0 \rightarrow u'=c_{1} \rightarrow u(t) = c_{1}t+c_{2}.
+\end{eqnarray*}\]</div>
+<p>We take another solution and obtain the general solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{2}(t) &amp;=&amp; te^{-at}\\\\
+y(t) &amp;=&amp; Cy_{1}(t) + Dy_{2}(t) = Ce^{-at}+Dte^{-at}
+\end{eqnarray*}\]</div>
+</section>
+<section id="case-3-complex-roots-undamped-underdamped">
+<h2>Case 3: complex roots (undamped/underdamped)<a class="headerlink" href="#case-3-complex-roots-undamped-underdamped" title="Permalink to this heading">#</a></h2>
+<p>We get the complex solution</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{c}(t) = e^{(a+bi)t} = u + iv, \text{ where } u, v \in \mathbb{R}
+\end{eqnarray*}\]</div>
+<div class="proof theorem admonition" id="my-theorem">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>If u+iv is the complex solution to</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+Ay'+By = 0,
+\end{eqnarray*}\]</div>
+<p>where A and B are real. Then u and v are real solutions.</p>
+</section>
+</div><div class="proof dropdown admonition" id="proof">
+<p>Proof. Plug the complex solution into the ODE:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+(u+iv)'' + A(u+iv)' + B(u+iv) = 0\\\\
+\Longrightarrow (u''+Au'+Bu) + i(v''+Av'+Bv) = 0.
+\end{eqnarray*}\]</div>
+<p>The only way that this equation holds is the real part equal to zero and imaginary part equal to zero.
+So the linear combination of u and v is the general solution:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = c_{1}u(t) + c_{2}v(t)
+\end{eqnarray*}\]</div>
+</div>
+<p>So the complex solution is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\tilde{y_c}(t) = e^{at+ibt}=e^{at}\cos{bt} + ie^{at}\sin{bt}.
+\end{eqnarray*}\]</div>
+<p>And the general solution is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) = e^{at}(c_{1}\cos{bt} + c_{2}\sin{bt})
+\end{eqnarray*}\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some of the course materials were modified from Professor <a class="reference external" href="https://math.mit.edu/~gs/">Gilbert Strang</a>’s,
-Professor <a class="reference external" href="https://en.wikipedia.org/wiki/Arthur_Mattuck">Arthur Mattuck</a>’s,
-and Professor <a class="reference external" href="https://www.stevenstrogatz.com/">Steven Strogatz</a>’s course materials, and many online materials.</p>
+<p>How about considering this complex solution</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y_{c}(t) = e^{at-ibt} \text{?}
+\end{eqnarray*}\]</div>
+<p>Can we obtain the same general solution? And why?</p>
 </div>
-<section id="class-information">
-<h2>Class information<a class="headerlink" href="#class-information" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Curriculum Number: AtmSci2011</p></li>
-<li><p>Curriculum Id Number: 209 27110</p></li>
-<li><p>Credit: 4</p></li>
-<li><p>Time: Monday 3,4 (10:20 am - 12:10) and Wednesday 6,7 (1:20 pm - 3:10 pm)</p></li>
-<li><p>Place: 大氣B105</p></li>
-<li><p>Requirements: basic knowledge in calculus and programming skills</p></li>
-<li><p>Office hours: by appointment</p></li>
-<li><p>Grading (100%): homework assignments (55%); final exam (25%); midterm exam (15%); class interaction (5%)</p></li>
-<li><p>Course website: <a class="reference external" href="https://yuchiaol.github.io/ntuas_ode_linear_algebra/docs/index.html">here</a></p></li>
-</ul>
+<div class="proof example admonition" id="my-example2">
+<p class="admonition-title"><span class="caption-number">Example 2 </span></p>
+<section class="example-content" id="proof-content">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y''+4y'+5y=0, y(0)=1, y'(0)=0
+\end{eqnarray*}\]</div>
+<p>The characteristic equation is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r^{2}&amp;+&amp;4r+5=0\\\\
+&amp;\Longrightarrow&amp; r=\frac{-4\pm \sqrt{-4}}{2} = -2\pm i\\\\
+\end{eqnarray*}\]</div>
+<p>So the complex solution is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+e^{(-2\pm i)t} \rightarrow e^{-2t}(\cos{t}\pm \sin{t})
+\end{eqnarray*}\]</div>
+<p>The general solution is therefore:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(t) &amp;=&amp; e^{-2t}(c_{1}\cos{t}+c_{2}\sin{t})\\\\
+y'(t) &amp;=&amp; -2e^{-2t}(c_{1}\cos{t}+c_{2}\sin{t}) + e^{-2t}(-c_{1}\sin{t}+c_{2}\cos{t})
+\end{eqnarray*}\]</div>
+<p>Use initial conditions</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y(0)&amp;=&amp;1=c_{1}, \\\\
+y'(0)&amp;=&amp;0=-2c_{1}+c_{2} \rightarrow c_{2}=2\\\\
+&amp;\Longrightarrow&amp; y(t)=e^{-2t}(\cos{t}+2\sin{t})=\sqrt{5}e^{-2t}\cos{}(t-\phi)
+\end{eqnarray*}\]</div>
+<p>This is a solution underdamped.</p>
 </section>
-<section id="teaching-assistants">
-<h2>Teaching assistants<a class="headerlink" href="#teaching-assistants" title="Permalink to this heading">#</a></h2>
+</div><p>Let us now revisit the problem with slightly modification on the coefficients:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+y'' &amp;+&amp; 2py'+\omega_{o}^{2}y=0,\\\\
+\text{where } &amp;\omega_{o}&amp; \text{is the natural frequency and p represents the damping.} 
+\end{eqnarray*}\]</div>
+<p>The characteristic equation is</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r^{2} + 2pr + \omega_{o}^{2} = 0 \\\\
+\rightarrow r = -p \pm \sqrt{p^{2}-\omega_{o}^{2}}
+\end{eqnarray*}\]</div>
 <ul class="simple">
-<li><p>Yih Wang (王逸)</p></li>
-<li><p>Shih-Ni Zhou (周詩倪)</p></li>
-<li><p>Jui-Jiun Lin (林瑞均)</p></li>
-<li><p>Ya-Fan Chung (鍾雅帆)</p></li>
+<li><p>if p=0, then there is no damping or called undamped.</p></li>
 </ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+&amp;&amp;y''+\omega_{o}^{2}y=0\\\\
+&amp;\Longrightarrow&amp; r=\pm i\omega_{o}\\\\
+&amp;\Longrightarrow&amp; y(t) = c_{1}\cos{\omega_{o}t} + c_{2}\sin{\omega_{o}t} = A\cos{}(\omega_{o}t-\phi)
+\end{eqnarray*}\]</div>
+<ul class="simple">
+<li><p>if another case</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+p^{2}-\omega_{o}^{2} &lt; 0 \rightarrow p&lt;\omega_{o},
+\end{eqnarray*}\]</div>
+<p>then we call the solution underdamped.</p>
+<div class="proof definition admonition" id="my-definition1">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
+<section class="definition-content" id="proof-content">
+<p>We define the pseudo-frequency as:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+\omega_{d}^{2} = \omega_{o}^{2} - p^{2}
+\end{eqnarray*}\]</div>
 </section>
-<section id="course-description">
-<h2>Course description<a class="headerlink" href="#course-description" title="Permalink to this heading">#</a></h2>
-<p>This course gives students overviews of linear first and second order ordinary differential equations (OEDs) and linear algebra. The math skills will be applied to atmospheric sciences problems.</p>
-<p>First order ODEs:</p>
-<ul class="simple">
-<li><p>responses to (complex) exponential, oscillating, delta and step function inputs</p></li>
-<li><p>integrating factor</p></li>
-<li><p>separable euqations</p></li>
-<li><p>exact solution</p></li>
-<li><p>phase line</p></li>
-</ul>
-<p>Second order ODEs:</p>
-<ul class="simple">
-<li><p>fundamental equation of mechanics</p></li>
-<li><p>forced harmonic motion</p></li>
-<li><p>unforced damped motion</p></li>
-<li><p>impulse response, exponential response</p></li>
-<li><p>method of undetermined coefficients</p></li>
-<li><p>variation of parameters</p></li>
-</ul>
-<p>Linear algebra:</p>
-<ul class="simple">
-<li><p>row and column view of matrix multiplication</p></li>
-<li><p>independence, basis, and dimension</p></li>
-<li><p>four fundamental subspaces</p></li>
-<li><p>factorization</p></li>
-</ul>
-<ol class="arabic simple">
-<li><p>CR decomposition:</p></li>
-</ol>
+</div><div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+r = -p \pm \sqrt{-\omega_{d}^{2}} = -p \pm i\omega_{d}
+\end{eqnarray*}\]</div>
+<p>So the general solution is</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{eqnarray*}
-A = CR
+y(t) &amp;=&amp; e^{-pt}(c_{1}\cos{}(\omega_{d}t) + c_{2}\sin{}(\omega_{d})) \\\\
+&amp;=&amp; Ae^{-pt}\cos{}(\omega_{d}t-\phi)
 \end{eqnarray*}\]</div>
-<ol class="arabic simple" start="2">
-<li><p>LU elimination:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = LU
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="3">
-<li><p>orthogonalization (Gram-Schmidt):</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = QR
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="4">
-<li><p>eigenvalues:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-S = Q\Lambda Q^{T}
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="5">
-<li><p>diagonalization:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = X\Lambda X^{T}
-\end{eqnarray*}\]</div>
-<ol class="arabic simple" start="6">
-<li><p>singular value decomposition (SVD):</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-A = U\Sigma V^{T}
-\end{eqnarray*}\]</div>
-<p>Solving linear system:</p>
-<ul class="simple">
-<li><p>matrix exponential</p></li>
-<li><p>phase plane: source, sink, saddle</p></li>
-</ul>
 </section>
-<section id="textbooks-and-videos">
-<h2>Textbooks and videos<a class="headerlink" href="#textbooks-and-videos" title="Permalink to this heading">#</a></h2>
-<p>Differential Equations and Linear Algebra:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/dela/">https://math.mit.edu/~gs/dela/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLMsYJgjgZE8iBpOBZEsS8PuwNBkwMcjix">https://www.youtube.com/playlist?list=PLMsYJgjgZE8iBpOBZEsS8PuwNBkwMcjix</a></p></li>
-</ul>
-<p>Differential Equations:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/">https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E">https://www.youtube.com/playlist?list=PL64BDFBDA2AF24F7E</a></p></li>
-</ul>
-<p>Introduction to Linear Algebra:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/linearalgebra/">https://math.mit.edu/~gs/linearalgebra/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8">https://www.youtube.com/playlist?list=PLE7DDD91010BC51F8</a></p></li>
-</ul>
-<p>Linear Algebra and Learning from Data:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://math.mit.edu/~gs/learningfromdata/">https://math.mit.edu/~gs/learningfromdata/</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k">https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k</a></p></li>
-</ul>
-<p>Nonlinear Dynamics and Chaos:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering">https://www.stevenstrogatz.com/books/nonlinear-dynamics-and-chaos-with-applications-to-physics-biology-chemistry-and-engineering</a></p></li>
-<li><p>youtube: <a class="reference external" href="https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V">https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V</a></p></li>
-</ul>
-<p>Advanced Engineering Mathematics:</p>
-<ul class="simple">
-<li><p>website: <a class="reference external" href="https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929">https://www.wiley.com/en-us/Advanced+Engineering+Mathematics%2C+10th+Edition-p-9781119455929</a></p></li>
-</ul>
+<section id="similarity-between-electrical-and-spring-dash-pot-system">
+<h2>Similarity between electrical and spring-dash pot system<a class="headerlink" href="#similarity-between-electrical-and-spring-dash-pot-system" title="Permalink to this heading">#</a></h2>
+<figure class="align-default" id="similar">
+<a class="reference internal image-reference" href="_static/figures/similarity_ode.jpeg"><img alt="_static/figures/similarity_ode.jpeg" src="_static/figures/similarity_ode.jpeg" /></a>
+</figure>
 </section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -502,12 +617,21 @@ A = U\Sigma V^{T}
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="week3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week3 - integrating factor</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="week1.html"
+       href="week5.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week1 - overview of ODEs</p>
+        <p class="prev-next-title">Week5 - method of undetermined coefficients</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -526,10 +650,11 @@ A = U\Sigma V^{T}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-information">Class information</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-assistants">Teaching assistants</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-description">Course description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbooks-and-videos">Textbooks and videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-linear-homogeneous-odes">Second order linear (homogeneous) ODEs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case1-two-real-roots-overdamping">Case1: two real roots (overdamping)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case2-two-equal-roots-critical-damping">Case2: two equal roots (critical damping)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-3-complex-roots-undamped-underdamped">Case 3: complex roots (undamped/underdamped)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-between-electrical-and-spring-dash-pot-system">Similarity between electrical and spring-dash pot system</a></li>
 </ul>
   </nav></div>
 
